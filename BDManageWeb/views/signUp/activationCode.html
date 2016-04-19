@@ -1,0 +1,55 @@
+﻿<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="activationCodeController">
+        <div class="contain">
+            <div class="boxStyle">
+                <div class="registerTitle">
+                    {{"title_activation_enter_code_1" | translate}} <span>{{"title_activation_enter_code_2" | translate}} </span>
+                </div>
+                <div class="registerInfo">
+                    <div class="inRegister">
+                        <div ng-show="ifShowName">
+
+                                {{"label_activation_hi" | translate}} {{name}},<br/>
+                                {{"label_activation_enter_1" | translate}}<br/>
+                         </div>
+                            {{"label_activation_enter_2" | translate}}
+
+                        <div>
+                            <div class="inputDiv">
+                                <img src="image/icon/activation-code_icon.png">
+
+                                <div class="inputContent">
+                                    <input type="text" id="actCode" placeholder="{{'placeholder_activation_code' | translate}}"
+                                           ng-model="actCode"
+                                           maxlength="8" ng-keydown="verifyActCodeFormat(actCode,$event)"
+                                           onkeypress="return handleEnter(this, event)"/>
+                                </div>
+                            </div>
+                            <div class="forgot">
+                                <img src="image/icon/question_icon.png"/>
+                                <a href="" ng-click="howGetActCode()">{{"label_activation_how"|translate}}</a>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="loginDiv">
+                                <a class="button blue btnLarge bigRounded">
+                                    <div ng-click="checkActCode(actCode)">
+                                        {{"button_continue" | translate}}
+                                        <img src="image/icon/button_arrows.png"/>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-include src="'views/footer.html'"></ng-include>
+    </div>
+</form>

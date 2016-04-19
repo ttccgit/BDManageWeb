@@ -1,0 +1,71 @@
+<div class="bg_help" ng-if="languageNGIf == 'eng_BR'" ng-controller="weightTrackingController">
+    <header class="logo logo_position">
+        <div class="logo_title">Help</div>
+        <div class="btn-group pull-left btn_menu btn_back">
+            <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/back_button.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="help">
+            <div class="text_padding">
+                <img class="help_express" src="image/small/LogoProPontos.png"/>
+            </div>
+            <div class="text_padding">
+                <ul class="font_recipe black">
+                    <li>Daily <span class="pro_font">ProPontos</span> Target</li>
+                </ul>
+                <span>
+                <p>Every food and drink has a <span class="pro_font">ProPontos ®</span> value, based on its nutritional
+                    makeup — protein, fiber, fat and carbs.
+                    What you eat and drink each day should add up to your daily <span class="pro_font">ProPontos</span>
+                    Target, which is determined by your age, height, weight and gender.</p>
+
+                <p> You can eat whatever you like, and a great place to start is by figuring out the <span
+                        class="pro_font">ProPontos</span> values of the foods you regularly eat in yourPointsPlus
+                    Tracker.
+                    You can settle for the result as is, or try these tricks for getting a great bang for your buck:</p>
+
+                <p> 1. Play with portion sizes — you can adjust these in the <span class="pro_font">ProPontos</span>
+                    Tracker.<br>
+                    2. Find a lower <span class="pro_font">ProPontos</span> value version of what you want to eat.<br>
+                    3. Pick an alternative, low-<span class="pro_font">ProPontos</span> value food.<br>
+
+                </p>
+                 <p>
+                     It’s also a good idea to focus on Power Foods, which we’ve determined will help you stay satisfied
+                     longer and deliver more nutrients for the <span class="pro_font">ProPontos</span> value.
+                     They’re identified by green triangles in our database.
+                 </p>
+                 <p>
+                     It's important to fit all food groups into your Target each day. That will give you better
+                     nutrition and much-needed variety.
+                     You can distribute it however you like, but here are a few suggestions for various Targets.
+                 </p>
+                 <p>
+                     You’ll notice that fresh fruits and vegetables, have 0 <span class="pro_font">ProPontos</span>
+                     values. They’re such healthy, filling choices that we want to encourage you to eat them.
+                     Consider them prepaid! Some condiments and small portions of other foods have 0 <span
+                         class="pro_font">ProPontos</span> values, too.
+                 </p>
+                  <p>
+                      All fresh fruit and most vegetables have been assigned <span class="pro_font">ProPontos</span>
+                      values of 0.
+                      We’re assuming you’re going to eat a reasonable amount of these, and that’s already factored into
+                      your daily <span class="pro_font">ProPontos</span> Target.
+                  </p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/help/pt_BR/hwDailyProPontosTarget.html'"></ng-include>
+</div>
+
+
+
+

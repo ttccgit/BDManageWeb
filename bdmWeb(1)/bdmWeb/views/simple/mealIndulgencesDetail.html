@@ -1,0 +1,19 @@
+﻿<div ng-controller="mealIndulgencesDetailController">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png"/></a>
+        <span class="top_title font_red">{{'title_simple_meal_details'| translate}}</span>
+    </div>
+    <div class="simplePage">
+        <h2 class="font_red font_w_b padding_b_d5">
+            {{meal.name}}<img id="imgFavorite" src="image/star_icon_gray.png" ng-click="modifyFavorite()"/></h2>
+        <div ng-if="meal.image != null" class="meal_detail_box">
+            <img src="{{meal.image}}"/>
+        </div>
+        <div>
+            1 {{meal.uomName}}<br/>
+            <strong>{{'label_point_proPontos'|translate}}®</strong> {{'label_simple_indulgence_value_of_de'|translate}} {{meal.point}}<br/>
+            {{'label_simple_indulgence_you_can_have'|translate}} <strong>{{'label_point_proPontos'|translate}}®</strong> {{'label_simple_indulgence_values_per_day_un'|translate}}.
+        </div>
+    </div>
+</div>

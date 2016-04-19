@@ -1,0 +1,48 @@
+<header>
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="introduceTrackingModeController">
+        <div class="contain">
+            <div class="prev_icon" onclick="prevPage()"><img src="image/arrow_blue_left.png"/></div>
+            <div id="wrapper" class="space_margin">
+                <div class="introduce-circle">
+                    <ul id="thelist">
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageOne.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageTwo.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageThree.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTackPageFour.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageFive.html'"></ng-include>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="next_icon"  onclick="nextPage()"><img src="image/arrow_blue_right.png"/></div>
+            <div id="nav">
+                <div class="pagefooter">
+                    <ul id="indicator">
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_one_tracking">
+        <ng-include src="'views/gettingStarted/introduceFooter.html'"></ng-include>
+    </div>
+    </div>
+</form>

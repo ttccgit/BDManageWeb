@@ -1,0 +1,65 @@
+<style>
+    .contain{
+        min-height: 600px;;
+    }
+    @media only screen and (max-width: 768px) {
+        .contain{
+            min-height: 300px;;
+        }
+    }
+</style>
+<header ng-controller="visitorTrackingModeController">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+    <img src="image/icon_back.png" ng-click="prevPage('{{prevPage}}')"  style="position: absolute;top: 2.6em;width: 2em;"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="visitorTrackingModeController">
+        <div class="contain">
+            <div class="prev_icon" onclick="prevPage()"><img src="image/arrow_blue_left.png"/></div>
+            <div id="wrapper" class="space_margin">
+                <div class="introduce-circle simple">
+                    <ul id="thelist">
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageTwo.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageThree.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTackPageFour.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceTrackPageFive.html'"></ng-include>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="next_icon"  onclick="nextPage()"><img src="image/arrow_blue_right.png"/></div>
+            <div id="nav">
+                <div class="pagefooter">
+                    <ul id="indicator">
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_simple_link">
+            <div class="footer_fixed">
+                <div class="express_gray">
+                    <div>
+                        <img src="image/small/logo_express_two.png">
+                    </div>
+                    <div class="btnLearnMorePro" ng-click="goToSimpleMode()">
+                        <img src="image/small/button_leam-more.png">
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+    </div>
+    </div>
+</form>

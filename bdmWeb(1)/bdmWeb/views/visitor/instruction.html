@@ -1,0 +1,132 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+    .Agent_android .app{
+        height:100%;
+        position: absolute;
+    }
+
+</style>
+<div ng-controller="instructionController">
+    <header class="logo logo_position">
+        <img class="visitor_logo" src="image/visitor/logo_vp.png"/>
+
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="scroll_head float_pad">
+            <div class="scroll_img">
+                <div class="propontos">
+                    <span class="font_white">8</span>
+                </div>
+                <div id="slider">
+                    <div class="pic_group">
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Bobo-de-Camarao.jpg"/>
+
+                                <p class="instruction" pro="8">
+                                    Bobó de Camarão
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Carne Assada ao Vinho Tinto.jpg">
+
+                                <p class="instruction" pro="5">
+                                    Carne Assada ao Vinho Tinto
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Espaguete ao Pesto de Espinafre Cremoso.jpg">
+
+                                <p class="instruction" pro="7">
+                                    Espaguete ao Pesto de Espinafre Cremoso
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Pudim de Banana.jpg">
+
+                                <p class="instruction" pro="6">
+                                    Pudim de Banana
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/receipt5.jpg">
+
+                                <p class="instruction" pro="4">
+                                    Sanduíche de Pasta de Cenoura com Frango
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="arrow_l">
+                        <img src="image/arrow_left.png"/>
+                    </div>
+                    <ul id="pagination">
+                    </ul>
+                    <div class="arrow_r">
+                        <img src="image/arrow_right.png"/>
+                    </div>
+                </div>
+            </div>
+            <div class="static_title" ng-click="next()">
+                {{'label_visitor_instruction_ingredients'| translate}}
+            </div>
+        </div>
+        <div class="scroll_body float_pad">
+            <!--<div class="up" ng-click="back()" > <img src="image/icon/up.png"/></div>-->
+            <div class="instructions">
+                <div class="instructions_l">
+                    <img class="imgSmall" src="image/visitor/visitor_img.png">
+                </div>
+                <div class="instructions_r">
+                    <p class="font_p">
+                        {{'label_visitor_instruction_powered'| translate}}
+                    </p>
+
+                    <p class="font_black">
+                        {{'label_visitor_instruction_get'| translate}}
+                    </p>
+
+                    <p class="font_black">
+                        {{'label_visitor_instruction_people'| translate}}
+                    </p>
+
+                    <div class="btnLearnMore" ng-click="learnMore()">
+                        <span>
+                            <a class="button blue bigRounded visitor-learn-more">{{'button_learn_more'| translate}}
+                                <img src="image/icon/button_arrows.png"/>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="btnLearnMore">
+                        <span class="find-meeting">
+                            <a class="button orange bigRounded visitor-find-meeting"
+                               href="http://www.vigilantesdopeso.com.br/comofunciona/reunioes/encontre/">
+                                <img src="image/icon/icon_find_meeting.png"/>
+                                {{'button_find' | translate}}
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

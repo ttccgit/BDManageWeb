@@ -1,0 +1,55 @@
+<header>
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="introduceModesController">
+        <div class="contain">
+            <div class="title-response"> {{'title_introduce_hello' | translate}} {{name}},
+                {{'title_introduce_welcome_0' | translate}}
+                <label ng-show="gender">{{'title_introduce_welcome_11' | translate}} </label>
+                <label ng-show="!gender">{{'title_introduce_welcome_12' | translate}} </label>
+                {{'title_introduce_welcome' | translate}}
+            </div>
+            <div class="introduce-frame-title">
+                <div class="registerTitle">
+                    <strong>{{'title_introduce_succeed' | translate}}</strong>
+                </div>
+                <div class="introduce-frame-info">
+                    <div class="inRegister">
+                        <div class="text-vertical-center">
+                            <p>
+                                {{'content_introduce_our_1' | translate}}<br>
+                                <strong>{{'content_introduce_our_2' | translate}} </strong><br>
+                                {{'content_introduce_our_3' | translate}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="introduce-frame-footer">
+                <div class="express-propontos express-propontos-left">
+                    <div ng-click="goToSimpleIntroduce()"  ><img class="express-propontos-image" src="image/small/LogoExpress.png"></div>
+                    <div class="express-text">
+                        <p>{{'content_introduce_simple' | translate}}
+                        </p>
+                    </div>
+                    <div ng-click="goToSimpleIntroduce()" class="btn_center">
+                        <img class="learn-more" src="image/small/button_leam-more.png">
+                    </div>
+                </div>
+                <div class="express-propontos express-propontos-right border_left">
+                    <div ng-click="goToTrackIntroduce()" ><img class="express-propontos-image" src="image/small/LogoProPontos.png"></div>
+                    <div class="express-text">
+                        <p>{{'content_introduce_tracker' | translate}}
+                        </p>
+                    </div>
+                    <div ng-click="goToTrackIntroduce()" class="btn_center">
+                        <img class="learn-more" src="image/small/button_leam-more.png">
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</form>

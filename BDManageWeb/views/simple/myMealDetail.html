@@ -1,0 +1,20 @@
+﻿<div ng-controller="myMealDetailController">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png" /></a> <span class="font_red">
+                {{'title_simple_meal_details'| translate}}</span>
+    </div>
+    <div class="meal_content_box">
+        <div class="my_meal_title">
+            <h2 class="font_red">
+                {{meal.name}}
+                <img id="imgFavorite" class="imgMealFavorite" src="image/star_icon_gray.png" ng-click="modifyFavorite()" /></h2>
+        </div>
+        <div class="my_meal_detail">
+            <span class="font_red">{{'label_simple_ingredients'| translate}}</span>
+            <ul>
+                <li ng-repeat="item in meal.ingredients">{{item.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

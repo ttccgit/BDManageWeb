@@ -1,0 +1,56 @@
+
+<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="loginController">
+        <div class="contain">
+            <div class="boxCrumbs">
+                <div class="boxTitle">{{'label_restPWD_title' | translate}}</div>
+                <!--<ul class="checkCPF">-->
+                    <!--<li>{{'label_restPWD_CPF' | translate}}</li>-->
+                    <!--<li>{{'label_restPWD_Validate' | translate}}</li>-->
+                    <!--<li>{{'label_restPWD_Reset' | translate}}</li>-->
+                <!--</ul>-->
+            </div>
+            <div class="boxStyle">
+                <div class="registerTitle">
+                    {{'label_setting_ps' | translate}}
+                </div>
+                <div class="registerInfo">
+                    <div class="inRegister">
+                        <div>
+                            <div class="inputDiv">
+                                <img src="image/icon/CPF_icon.png"/>
+                                <div class="inputContent">
+                                    <input type="text" placeholder=" {{'placeholder_login_cpf' | translate}}" ng-model="cpf"
+                                           ng-keyup="verifyCPFFormat(cpf,$event)"
+                                           maxlength="14" onkeypress="return handleEnter(this, event)"/>
+                                </div>
+                            </div>
+                            <div class="inputDiv">
+                                <img src="image/icon/activation-code_icon.png">
+                                <div class="inputContent">
+                                    <input type="text" id="emailCode"  ng-model="emailCode" placeholder="{{'placeholder_Authentication_Code' | translate}}" onkeypress="return handleEnter(this, event)"/>
+                                </div>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="loginDiv">
+                                <a class="button blue btnLarge bigRounded">
+                                    <div ng-click="checkCPFAndCode()">
+                                        {{"button_continue" | translate}}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-include src="'views/footer.html'"></ng-include>
+    </div>
+</form>

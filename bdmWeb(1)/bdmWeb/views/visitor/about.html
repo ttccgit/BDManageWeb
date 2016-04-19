@@ -1,0 +1,42 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+
+</style>
+<div ng-if="languageNGIf == 'eng_BR'" ng-controller="aboutUsController">
+    <header class="logo logo_position">
+        <div class="logo_title">About</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="text_padding">
+            <span style="color: red">Version:v1.0.0</span>
+
+            <p>
+                The
+                <span style="font-style: italic; font-weight: bold;">ProPontos&#8482;</span>
+                weight loss system and accompanying materials belong to Weight Watchers International, Inc. Vigilantes
+                do Peso Marketing Ltda. licenses the system to Weight Watchers Associates for personal use only with the
+                purpose of losing and controlling weight.
+            </p>
+
+            <p>Any other use is strictly forbidden. All rights reserved. Reproduction in any form is prohibited,
+                including photocopies, leaflets, weight loss programs, magazines, newspapers and websites. </p>
+
+            <div>
+                Vigilantes do Peso&reg;, Vigilantes do Peso EmCasa&#8482;
+                <span style="font-style: italic; font-weight: bold;">eProPontos&#8482;</span> are exclusive brands of
+                Weight Watchers International, Inc.,
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/visitor/pt_BR/about.html'"></ng-include>
+</div>

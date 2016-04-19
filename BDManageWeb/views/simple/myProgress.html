@@ -1,0 +1,157 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+    .app{
+        height:100%!important;
+        position: relative!important;
+    }
+</style>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="simpleProgressController">
+        <header class="logo simple_header">
+            <div class="logo_title simple_logo_title">{{'title_simple_my_progress'| translate}}</div>
+            <div class="btn-group pull-left btn_menu btn_menu_simple" ng-controller="simpleMenuController">
+                <div ng-click="showSimpleBar()" class="btn btn-navbar sidebar-toggle">
+                    <img src="image/icon/menu_icon.png"/>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <!--<div class="myProgress_title">-->
+        <!--<span>{{'title_simple_my_progress'|translate}}</span>-->
+        <!--</div>-->
+        <div class="myProgress_body">
+            <div class="myProgress_reason">
+                <div>
+                    <span>{{'title_simple_the_reason'|translate}}</span>
+                </div>
+                <div class="reason_box">
+
+                    <img src="image/simple/my progress_write_icon.png" id="icon_write" onclick="showEditReason()"/>
+
+
+                    <input type="text" ng-model="reason" id="reason" ng-blur="saveReason()"
+                           placeholder="{{'placeholder_simple_tab'|translate}}"/>
+                    <span id="showReason">{{reason}}</span>
+
+
+                </div>
+            </div>
+            <div class="myProgress_date">
+                <img src="image/simple/arrows_leflt_gray.png" ng-click="prevDate()"/>
+
+                <input type="date" ng-model="progressDate" style="border:0" readonly
+                       style="border:0;background: none;text-align:center;"/>
+                <img src="image/simple/arrows_right_gray.png" ng-click="afterDate()" ng-show="progressDateFlag"/>
+            </div>
+            <div id="myProgressBox">
+                <div class="myProgress_msg">
+                    <p>{{'label_simple_check_off'|translate}}</p>
+
+                    <p style="margin-top: -0.8em;">{{'label_simple_you_can'|translate}}</p>
+                </div>
+                <div class="mealDiv progress_div" ng-click="go2SelectedFoods('0')">
+                    <img src="image/simple/breakfast_unselect_icon.png" ng-show="breakfastSel"
+                         class="icon_position margin_left_6"/>
+                    <img src="image/simple/breakfast_select_icon.png" ng-show="!breakfastSel"
+                         class="icon_position margin_left_6"/>
+
+                    <div class="process_des">
+                        <!--<span class="margin_left_6" ng-show="breakfastSel"/>{{'label_simple_select_a'|translate}}</span>-->
+                        <span class="margin_left_6"/>{{'label_simple_select_a'|translate}}</span><br>
+
+                        <p>{{breakfastDetails}}</p>
+                    </div>
+                    <!--<a href="#/foodList?meal=0"><img src="image/arrow_right.jpg" class="meal_add"/></a>-->
+                </div>
+                <div class="mealDiv progress_div" ng-click="go2SelectedFoods('1')">
+                    <img src="image/simple/lunch_unselect_icon.png" ng-show="lunchSel"
+                         class="icon_position margin_left_6"/>
+                    <img src="image/simple/lunch_select_icon.png" ng-show="!lunchSel"
+                         class="icon_position margin_left_6"/>
+
+                    <div class="process_des">
+                        <!--<span class="margin_left_6" ng-show="lunchSel"/>{{'label_simple_select_lunch'|translate}}</span>-->
+                        <span class="margin_left_6"/>{{'label_simple_select_lunch'|translate}}</span><br>
+
+                        <p>{{lunchDetails}}</p>
+                    </div>
+                    <!--<a href="#/foodList?meal=0"><img src="image/arrow_right.jpg" class="meal_add"/></a>-->
+                </div>
+                <div class="mealDiv progress_div" ng-click="go2SelectedFoods('2')">
+                    <img src="image/simple/dinner_unselect_icon.png" ng-show="dinnerSel"
+                         class="icon_position margin_left_6"/>
+                    <img src="image/simple/dinne_select_icon.png" ng-show="!dinnerSel"
+                         class="icon_position margin_left_6"/>
+
+                    <div class="process_des">
+                        <!--<span class="margin_left_6" ng-show="dinnerSel"/>{{'label_simple_select_dinner'|translate}}</span>-->
+                        <span class="margin_left_6"/>{{'label_simple_select_dinner'|translate}}</span><br>
+
+                        <p>{{dinnerDetails}}</p>
+                    </div>
+                    <!--<a href="#/foodList?meal=0"><img src="image/arrow_right.jpg" class="meal_add"/></a>-->
+                </div>
+                <div class="mealDiv progress_div" ng-click="go2SelectedFoods('3')">
+                    <img src="image/simple/snack_unselect_icon.png" ng-show="snackSel"
+                         class="icon_position margin_left_6"/>
+                    <img src="image/simple/snack_select_icon.png" ng-show="!snackSel"
+                         class="icon_position margin_left_6"/>
+
+                    <div class="process_des">
+                        <!--<span class="margin_left_6" ng-show="snackSel"/>{{'label_simple_select_snack'|translate}}</span>-->
+                        <span class="margin_left_6"/>{{'label_simple_select_snack'|translate}}</span><br>
+
+                        <p>{{snackDetails}}</p>
+                    </div>
+                    <!--<a href="#/foodList?meal=0"><img src="image/arrow_right.jpg" class="meal_add"/></a>-->
+                </div>
+                <div class="mealDiv progress_div" ng-click="go2SelectedFoods('4')">
+                    <img src="image/simple/indulgence_unselect_icon.png" ng-show="indulgenceSel"
+                         class="icon_position margin_left_6"/>
+                    <img src="image/simple/indulgence_select_icon.png" ng-show="!indulgenceSel"
+                         class="icon_position margin_left_6"/>
+
+                    <div class="process_des">
+                        <!--<span class="margin_left_6" ng-show="indulgenceSel"/>{{'label_simple_select_indulgence'|translate}}</span>-->
+                        <span class="margin_left_6"/>{{'label_simple_select_indulgence'|translate}}</span><br>
+
+                        <p>{{indulgenceDetails}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group justified nav-tabs navbar-absolute-bottom mealFooter">
+            <a class="btn" href="#/simple">
+                <img class="imgNormal" src="image/icon/meal ideas_blue.png"/><img class="imgChecked"
+                                                                                  src="image/icon/meal ideas_red.png"/>
+
+                <div>
+                    {{'footer_simple_meal_ideas'| translate}}
+                </div>
+            </a><a class="btn" href="#/myMeals">
+            <img class="imgNormal" src="image/icon/my meals_blue.png"/><img class="imgChecked"
+                                                                            src="image/icon/my meals_red.png"/>
+
+            <div>
+                {{'footer_simple_my_meals'| translate}}
+            </div>
+        </a><a class="btn  checked" href="#/myProgress">
+            <img class="imgNormal" src="image/icon/my progress_blue.png"/><img class="imgChecked"
+                                                                               src="image/icon/my progress_red.png"/>
+
+            <div>
+                {{'footer_simple_my_progress'| translate}}
+            </div>
+        </a><a class="btn" href="#/howItWorks">
+            <img class="imgNormal" src="image/icon/how it works_blue.png"/><img class="imgChecked"
+                                                                                src="image/icon/how it works_red.png"/>
+
+            <div>
+                {{'footer_simple_how_it_works'| translate}}
+            </div>
+        </a>
+        </div>
+    </div>
+</form>

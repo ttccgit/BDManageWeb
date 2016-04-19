@@ -1,0 +1,54 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+</style>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="weightListController">
+        <div id="head">
+                <div class="navbar navbar-app navbar-absolute-top bg-blue">
+                    <div class="navbar-brand navbar-brand-center">
+                        <span>{{'title_weight_tracker' | translate}}</span>
+                    </div>
+                    <div class="btn-group pull-left">
+                        <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                            <img src="image/icon_back.png">
+                        </div>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <div ng-click="gotoPage()" class="btn btn-navbar">
+                            <img src="image/icon_img.png"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="weightTab">
+                    <div class="trHead">
+                        <div>{{'label_weight_date' | translate}}</div>
+                        <div>{{'label_weight_weight' | translate}}</div>
+                        <div>{{'label_weight_change' | translate}}</div>
+                        <div>{{'label_weight_since' | translate}}</div>
+                    </div>
+                 </div>
+            </div>
+        <div id="bodyData" class="myProgress_body">
+                <div class="weightTab">
+                    <!--<div class="trHead">-->
+                        <!--<div>{{'label_weight_date' | translate}}</div>-->
+                        <!--<div>{{'label_weight_weight' | translate}}</div>-->
+                        <!--<div>{{'label_weight_change' | translate}}</div>-->
+                        <!--<div>{{'label_weight_since' | translate}}</div>-->
+                    <!--</div>-->
+
+                    <div ng-repeat="weightTracker in weightTrackers | filter:query"
+                         ng-click="updateWeight({{weightTracker}})" class="{{weightTracker.weightClass}}">
+                        <div class="trDate">{{weightTracker.pageWeekDate}}</div>
+                        <div ng-show="!weightTracker.noWeight">{{weightTracker.weight | floatFormat}}</div>
+                        <div ng-show="!weightTracker.noWeight">{{weightTracker.lostWeight | floatFormat}}</div>
+                        <div class="text-left extra_for_value" ng-show="!weightTracker.noWeight"><span>{{weightTracker.lostWeightTotal | floatFormat}}</span><img
+                               class="icon_start" ng-show="!weightTracker.noStar" src="{{weightTracker.showMileston}}"/></div>
+                        <div ng-show="weightTracker.noWeight" class="trNoWeight">{{'label_weight_no_enter' | translate}} </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>

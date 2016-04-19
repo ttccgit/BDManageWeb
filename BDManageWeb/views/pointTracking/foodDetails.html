@@ -1,0 +1,95 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="foodDetailsController">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{trackerDate}}</span>
+                </div>
+                <div class="btn-group pull-left">
+                    <div onclick="window.history.go(-1)" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border_top_devide">
+            <div class="trackerBoxOutContent">
+                <div class="pointBox">
+                    <div class="pointDiv">
+                        <div class="pointTitle">{{name}}
+                            <!--<img src="image/icon_recently_added.png" ng-show="recentAdd"/>-->
+                            <!--<img src="image/icon_my_foods.png" ng-show="memberFood"/>-->
+                            <!--<img src="image/triangle_ico.png" ng-show="powerFood"/>-->
+                            <!--<img src="image/favorites_ico_homepage.png" ng-show="favorite"/>-->
+                        </div>
+                        <div class="favIcon">
+                            <img src="image/favorites_null.png" ng-show="!favIconFlag" ng-click="addFav()"/>
+                            <img src="image/favorites_Checkednull.png" ng-show="favIconFlag" ng-click="deleteFav()"/>
+                            <i>{{'label_pointTrack_favorites' | translate}}</i></div>
+
+                    </div>
+
+                    <div class="propontos_content">
+                        <div class="propontos_img"><span class="font_white">{{point}}</span></div>
+                        <!--<img src="image/propontos.png">-->
+
+                    </div>
+                    <div class="servingTop">
+                        <div>{{'label_pointTrack_servings' | translate}}:</div>
+                        <div class="inputDiv light_blue width_30">
+                            <select class="" ng-model="servingsWhole"
+                                    ng-options="i.id as i.name for i in servingsWholeModel"
+                                    ng-change="servingChanged()"></select>
+                        </div>
+                        <div class="inputDiv light_blue width_30">
+                            <select class="" ng-model="fractionId"
+                                    ng-options="i.id as i.name for i in servingsFractionIdModel"
+                                    ng-change="servingChanged()"></select>
+                        </div>
+                        <div class="inputDiv light_blue width_30">
+                            <select class="" ng-model="portionId"
+                                    ng-options="i.id as i.name for i in uomsModel"
+                                    ng-change="uomsChanged()"></select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn_green" ng-click="addFoodTracker()">{{'button_pointTrack_addToTrack' | translate}}
+                </button>
+                <div class="trackerBox pointBox margin_top_1em">
+                    <div class="articleTitle">{{'label_pointTrack_nd' | translate}}</div>
+                    <div class="borderDiv extral_for_space">
+                        <div class="border_bottom div_table width100">
+                            <div class="middleDiv textLeft border_right bondText div_table_cell">
+                                {{'label_pointTrack_nutrients' | translate}}
+                            </div>
+                            <div class="middleDiv textLeft  bondText div_table_cell">{{'label_pointTrack_as' | translate}}</div>
+                        </div>
+                        <div class="border_bottom div_table width100">
+                            <div class="middleDiv textLeft border_right div_table_cell">{{'label_pointTrack_carbohydrates' |
+                                translate}}
+                            </div>
+                            <div class="middleDiv textLeft div_table_cell" ng-model="carbs">{{carbs}} g</div>
+                        </div>
+                        <div class="border_bottom div_table width100">
+                            <div class="middleDiv textLeft border_right div_table_cell">{{'label_pointTrack_protein' | translate}}
+                            </div>
+                            <div class="middleDiv textLeft div_table_cell" ng-model="protein">{{protein}} g</div>
+                        </div>
+                        <div class="border_bottom div_table width100">
+                            <div class="middleDiv textLeft border_right div_table_cell">{{'label_pointTrack_fat' | translate}}</div>
+                            <div class="middleDiv textLeft div_table_cell" ng-model="fat">{{fat}} g</div>
+                        </div>
+                        <div class=" div_table width100">
+                            <div class="middleDiv textLeft border_right div_table_cell">{{'label_pointTrack_fiber' | translate}}</div>
+                            <div class="middleDiv textLeft div_table_cell " ng-model="fiber">{{fiber}} g</div>
+                        </div>
+                    </div>
+                    <div>
+                        Estas informações entram na soma das unidades <span style="font-style: italic;">ProPontos</span> deste alimento. Consulte a embalagem
+                        deste alimento para preencher as informações nutricionais.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

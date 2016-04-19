@@ -1,0 +1,38 @@
+<div>
+    <div class="left_pad">
+        <div class="track-title">
+            <label ng-show="!gender">{{'label_introduce_track_1' | translate}} </label>
+            <label ng-show="gender">{{'label_introduce_track' | translate}}</label>
+            <br/>
+            <strong>{{name}}</strong>,{{'label_introduce_track_this_1' | translate}}
+            <strong><i>{{'label_introduce_track_this_2' | translate}}</i></strong>
+            {{'label_introduce_track_this_4' | translate}}
+            <strong><i>{{'label_introduce_track_this_2' | translate}}</i></strong>
+            {{'label_introduce_track_this_3' | translate}}
+        </div>
+        <div class="bg-birthday-warning" ng-show="isSeventeen">
+            <p>{{'label_introduce_warning' | translate}}</p>
+
+            <p>{{'label_introduce_daily_target' | translate}}</p>
+        </div>
+        <div class="bg-every-day">
+            <div class="align_c">
+                <img class="every_day_small" src="image/small/every-day_Portuguese.png">
+                <img class="every_day_large" src="image/large/every-day_Portuguese.png">
+            </div>
+            <div class="day-points">{{weightTEE}}</div>
+            <div class="week-points">49</div>
+        </div>
+        <div class="track-text text-small ">
+            <p>{{'content_introduce_tracker_1_1' | translate}}
+                <span class="logo_font">{{'content_introduce_tracker_1_2' | translate}}</span> {{'content_introduce_tracker_1_3' | translate}}
+                <span class="logo_font">{{'content_introduce_tracker_1_2' | translate}}</span>
+                {{'content_introduce_tracker_1_4' | translate}}
+                <span class="logo_font">{{'content_introduce_tracker_1_2' | translate}}</span>
+                {{'content_introduce_tracker_1_5' | translate}}
+            </p>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>

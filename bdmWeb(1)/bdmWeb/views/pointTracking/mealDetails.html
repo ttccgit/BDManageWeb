@@ -1,0 +1,89 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="foodDetailsController">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{trackerDate}}</span>
+                </div>
+                <div class="btn-group pull-left">
+                    <div onclick="window.history.go(-1)" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border_top_devide">
+            <div class="trackerBoxOutContent">
+                <div class="pointBox">
+                    <div class="pointDiv">
+                        <div class="pointTitle" ng-model="title">{{title}}
+                            <img src="image/icon_recently_added.png" ng-show="recentAdd"/>
+                            <img src="image/icon_my_foods.png" ng-show="memberFood"/>
+                            <img src="image/triangle_ico.png" ng-show="powerFood"/>
+                            <img src="image/favorites_ico_homepage.png" ng-show="favorite"/>
+                        </div>
+                        <!--<img src="image/triangle_ico.png">-->
+                        <div class="favIcon">
+                            <img src="image/favorites_null.png" ng-show="!favIconFlag" ng-click="addFav()"/>
+                            <img src="image/favorites_Checkednull.png" ng-show="favIconFlag" ng-click="deleteFav()"/>
+                            <i>{{'label_pointTrack_favorites' | translate}}</i>
+                        </div>
+                        <div class="servingTop">
+                            1 {{'label_pointTrack_serving(s)' | translate}}
+                        </div>
+                        <!--<div class="servingTop" ng-model="servings">{{servings}}servings</div>-->
+                    </div>
+
+                    <div class="propontos_content">
+                        <div class="propontos_img"><span class="font_white" ng-model="point">{{point}}</span></div>
+                        <!--<img src="image/propontos.png">-->
+
+                    </div>
+                </div>
+
+
+                <button class="btn_gray" ng-show="!buttonGray">{{'button_pointTrack_addToTrack' | translate}}</button>
+                <button class="btn_green" ng-show="buttonGray" ng-click="addFoodTracker()">{{'button_pointTrack_addToTrack' | translate}}</button>
+
+
+            </div>
+            <div class="trackerBox pointBox borderDiv extral_for_space fix_margin">
+                <div>
+                    <div class="longDiv mealDetail_div textLeft  " ng-repeat="ingredient in ingredients">
+                        <div class="display_table">
+                            <div class="long_left"><p>{{ingredient.name}}</p>
+
+                                <p>{{ingredient.uomCount}}</p></div>
+                            <div class="long_right"><img src="image/triangle_ico.png"
+                                                         ng-show="{{ingredient.powerFood}}">
+
+                                <div class="shortDiv textRight ">{{ingredient.point}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--<div class="shortDiv textRight "><img src="image/triangle_ico.png"/>0</div>-->
+                </div>
+                <!--<div class="border_bottom ">-->
+                <!--<div class="longDiv textLeft  ">-->
+                <!--<p><b>Dreessing,salad,vinaigrette,low-fat</b></p>-->
+                <!--<p>1 1/4 Tbsp</p>-->
+                <!--</div>-->
+                <!--<div class="shortDiv textRight ">0</div>-->
+                <!--</div>-->
+                <!--<div class=" ">-->
+                <!--<div class="longDiv textLeft  ">-->
+                <!--<p><b>Raisins,golden seedless</b></p>-->
+                <!--<p>1 Tbsp</p>-->
+                <!--</div>-->
+                <!--<div class="shortDiv textRight ">0</div>-->
+                <!--</div>-->
+            </div>
+            <div class="trackerBox margin_top_1 pointBox pointPcolor fix_margin">
+                <p><b>{{'label_pointTrack_note' | translate}}</b></p>
+
+                <p ng-model="note">{{note}}</p>
+            </div>
+        </div>
+    </div>
+</form>

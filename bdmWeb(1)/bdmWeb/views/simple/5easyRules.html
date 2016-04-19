@@ -1,0 +1,81 @@
+    <style>
+        body{
+            font-size: 18px;
+        }
+
+        h1{
+            color:#e94b40;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        h2{
+            color: #b4b4b4;
+            font-size: 1.2em;
+        }
+        h3{
+            color:#e94b40;
+            font-size: 1em;
+        }
+
+        h3 .font_gray{
+            margin-right: 10px;
+        }
+
+        .font_gray{
+            color: #40535a;
+        }
+        p {
+            font-size: 1em;
+            color: #40535a;
+            margin-left: 23px;
+        }
+        .border_bottom_gray{
+        border-bottom:1px solid #B4B4B4;
+            padding-bottom: 10px;
+        }
+
+
+    </style>
+    <div ng-if="languageNGIf == 'eng_BR'" ng-controller="howItWorksController" class="ng-scope">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png"/></a> <span class="font_red">
+                How It Works</span>
+    </div>
+    <div class="content_padding">
+
+<h1>5 Easy Rules of Simple Start</h1>
+
+<h2>How to follow Simple Start, in 5 easy steps:</h2>
+<h3><span class="font_gray">1</span>Choose a meal. Eat it.</h3>
+
+<p class="border_bottom_gray">Simple Start meals are created from Vigilantes do Peso Power Foods; good-for-weight-loss ingredients that help fill you up faster.
+<br />
+<br />
+Just pick from the 55 meals and snacks in the app, and start eating. (Feeling creative? Go to the My Meals section to build your own breakfast, lunch or dinner!)
+</p>
+<h3><span class="font_gray">2</span>Don't worry about portions.</h3>
+
+<p class="border_bottom_gray">Really. By eating off the Simple Start Food List, you're consuming foods that help you fill up faster-and avoiding the foods that lead to overeating.
+    <br />
+    <br />
+
+If you want guidance around portions, we've photographed our meals on a 10-inch plate, a 12-oz bowl and a 12-oz glass (look for them on the meal detail screens). These visual cues show you how much food each meal makes.
+</p>
+<h3><span class="font_gray">3</span>Don't deprive yourself.</h3>
+
+<p class="border_bottom_gray">Feel like a glass of wine? Go for it. Craving a pat of real butter on your light English muffin? Enjoy. You can have 7 <b><i>ProPontos</i></b>&reg; values per day (49 per week) to spend on indulgences. To make it simple, we've listed some of the foods that members frequently choose, and labeled them with their <b><i>ProPontos</i></b> values. Enjoy them on their own or as an ingredient in a meal.
+</p>
+<h3><span class="font_gray">4</span>Have 2 tsp of healthy oils per day, total.</h3>
+
+<p class="border_bottom_gray">No, no, not in a shot glass. Cook with them, use them in a salad - whatever works for you. Although oils are not Power Foods, they do work well with this plan. Check the Simple Start Food List to see which ones to use.
+</p>
+<h3><span class="font_gray">5</span>Choose unlimited "free" beverages.</h3>
+<p>
+Drink as much as you want of the following: Water, with or without bubbles (plain or flavored, unsweetened); coffee or tea (without sugar, fat-free milk only); diet soda.
+</p>
+    </div>
+    </div>
+    <div ng-if="languageNGIf == 'pt_BR'">
+        <ng-include src="'views/simple/pt_BR/hwEasyRules.html'"></ng-include>
+    </div>

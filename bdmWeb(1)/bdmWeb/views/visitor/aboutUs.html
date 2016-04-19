@@ -1,0 +1,94 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+
+</style>
+<div ng-if="languageNGIf == 'eng_BR'" ng-controller="aboutUsController">
+    <header class="logo logo_position">
+        <div class="logo_title">{{'menu_weight_About' | translate}}</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="text_padding">
+        <div class="section">
+            <span class="about_title">Succeed at Weight Loss!</span>
+
+            <p>
+            <span class="about_detail">Our proposal promotes weight loss and healthy in the simplest way.
+                The Weight Watchers weight loss program is simple, smart and satisfies. </span>
+
+            <p/>
+
+            <p>
+            <span class="about_detail">ProPontos program is based on the results of the latest research and considers how food is assimilated by the body.
+                The new food plan, added to other foundations of our proposal, makes you make smarter food choices. </span>
+            </p>
+        </div>
+
+        <div class="section">
+            <span class="about_title">There&acute;s strength in numbers</span>
+
+            <p>
+                <span class="about_detail">Meetings</span>
+            </p>
+
+            <p>
+            <span class="about_detail">Get guidance from a Leader who has lost weight with Vigilantes do Peso,
+                and support from people like you.
+                <a href="http://www.vigilantesdopeso.com.br/comofunciona/reunioes/encontre/">Find a meeting near
+                    you.</a> </span>
+            </p>
+        </div>
+
+        <div class="section">
+            <span class="about_title">Vigilantes do Peso At Home</span>
+
+            <p>
+                <span class="about_detail">Get information and resources you need to follow Vigilantes do Peso from the comfort of your home.</span>
+
+            <p/>
+
+            <p>
+            <span class="about_detail">We&acute;ll send you plan information and resources so you can follow Vigilantes do Peso At Home if you can&acute;t join meetings.
+                <a href="http://www.vigilantesdopeso.com.br/comofunciona/emcasa/">{{'button_learn_more'|
+                    translate}}.</a> </span>
+            </p>
+        </div>
+
+        <div class="section">
+            <span class="about_title">What if a great start was a no-brainer?</span>
+
+            <p>
+            <span class="about_detail">With Vigilantes do Peso Express it is.
+                All you do is eat from a list of foods that you can find in any grocery store (we call them PowerFoods.)
+                We give you lots of delicious meal ideas or you can make your own. It&acute;s so uncomplicated it&acute;s almost unbelievable.</span>
+
+            <p/>
+        </div>
+        <div class="introduce-frame-footer aboutUsFooter">
+            <div class="express-propontos express-propontos-left">
+                <div><img class="express-propontos-image" src="image/small/LogoExpress.png"></div>
+
+                <div ng-click="goToSimpleIntroduce('/aboutUs')" class="btn_center"> {{mark}}
+                    <img class="learn-more" src="image/small/button_leam-more.png">
+                </div>
+            </div>
+            <div class="express-propontos express-propontos-right border_left">
+                <div><img class="express-propontos-image" src="image/small/LogoProPontos.png"></div>
+
+                <div ng-click="goToTrackIntroduce('/aboutUs')" class="btn_center">
+                    <img class="learn-more" src="image/small/button_leam-more.png">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/visitor/pt_BR/aboutUs.html'"></ng-include>
+</div>

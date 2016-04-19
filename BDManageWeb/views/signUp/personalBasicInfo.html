@@ -1,0 +1,77 @@
+﻿
+<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="personalController">
+        <div class="contain">
+            <div class="register boxWider">
+                <div class="title">
+                    {{"title_person_just" | translate}}
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/name_icon.png"/>
+
+                    <div class="inputContent">
+                        <input type="text" placeholder="{{'placeholder_person_first_name'|translate}}" ng-model="firstName" maxlength="20"
+                               ng-keyup="verifyFirstName()" onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/name_icon.png"/>
+
+                    <div class="inputContent">
+                        <input type="text" placeholder="{{'placeholder_person_last_name'|translate}}" ng-model="lastName" maxlength="20"
+                               ng-keyup="verifyLastName()" onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/email_icon.png"/>
+
+                    <div class="inputContent">
+                        <input id="txtEmail" type="email" placeholder="{{'placeholder_person_email'|translate}}" ng-model="email"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="btn-group justified nav-tabs selectBar sexBar" style="padding: 0 0 0 0">
+                    <a class="btn" onclick="checkedSelect(this)" value="1"></a><a class="btn"
+                                                                                  onclick="checkedSelect(this)"
+                                                                                  value="0"></a>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/birthday_icon.png"/>
+
+                    <!--<div class="inputContent extra_for_date">-->
+                        <!--<input id="limitedWidth" type="date" ng-model="birthday" ng-show="!isShowB"/>-->
+                        <!--<input id="birthday" type="text" placeholder="Data de nascimento" ng-model="birthday"  ng-show="isShowB"/>-->
+                    <!--</div>-->
+
+                    <div class="inputContent extra_for_date">
+                        <input id="birthday" type="text" placeholder="{{'placeholder_person_birthday'|translate}}" ng-model="birthday"
+                               ng-keyup="verifyBirthdayFormat()" maxlength="10"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/zipcode_ico.png"/>
+
+                    <div class="inputContent">
+                        <input type="text" placeholder="{{'placeholder_person_zip'|translate}}" ng-model="zipCode" maxlength="9"
+                               ng-keyup="verifyZipCodeFormat(zipCode,$event)"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="loginDiv buttonBar">
+                    <a class="button blue btnLarge bigRounded" ng-click="next()">
+                        <div>
+                            {{'button_continue' | translate}}
+                            <img src="image/icon/button_arrows.png"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

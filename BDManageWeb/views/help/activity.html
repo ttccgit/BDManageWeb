@@ -1,0 +1,62 @@
+<div class="bg_help" ng-if="languageNGIf == 'eng_BR'" ng-controller="weightTrackingController">
+    <header class="logo logo_position">
+        <div class="logo_title">Help</div>
+        <div class="btn-group pull-left btn_menu btn_back">
+            <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/back_button.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="help">
+            <div class="text_padding">
+                <img class="help_express" src="image/small/LogoProPontos.png"/>
+            </div>
+            <div class="text_padding">
+                <ul class="font_recipe black">
+                    <li>Activity</li>
+                </ul>
+                <span>
+                <p> Physical activity can help you lose weight, is important for keeping it off, and can also help
+                    improve your health. Our Activity Assessment tool can give you a weekly activity <span
+                            class="pro_font">ProPontos®</span> goal that will help you see these benefits.
+                    Your aim is to work up to earning 4-6 activity <span class="pro_font">ProPontos</span> values per
+                    day.</p>
+
+                <p> You don’t have to work out at the gym to get the physical activity you need. Any kind of movement is
+                    good for you – from walking around the block to everyday activities like gardening.
+                    Walking is one of the simplest and best exercises to build on.</p>
+
+                <p>Read our safety tips before starting. Whatever activity you do, we want you to start slowly and build
+                    up gradually. You should always talk to your doctor before starting any exercise program.
+                    Do not exercise without professional supervision if you’re more than 30 pounds overweight.
+                </p>
+                 <p>
+                     To find the <span class="pro_font">ProPontos</span> value of an activity, search for them by name
+                     in the Activity Tracker, or use the activity <span class="pro_font">ProPontos</span> Calculator.
+                 </p>
+                 <p>
+                     The activity <span class="pro_font">ProPontos</span> values you earn are based on your current
+                     weight, the time you spend moving, and the intensity of your efforts.
+                     Be realistic about your intensity level so you don't overestimate the number of <span
+                         class="pro_font">ProPontos</span> values you earn.
+                 </p>
+                 <p>
+                     The <span class="pro_font">ProPontos</span> Tracker will by default swap the activity <span
+                         class="pro_font">ProPontos</span> values you’ve earned for food <span class="pro_font">ProPontos</span>
+                     values if you’ve used up your weekly <span class="pro_font">ProPontos</span> Allowance. (If you
+                     prefer to use your activity <span class="pro_font">ProPontos</span> values before your weekly <span
+                         class="pro_font">ProPontos</span> Allowance, you can change this by going to your Settings.)
+                 </p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/help/pt_BR/hwActivity.html'"></ng-include>
+</div>
+
+

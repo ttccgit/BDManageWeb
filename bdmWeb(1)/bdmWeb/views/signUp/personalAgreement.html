@@ -1,0 +1,55 @@
+
+<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="personalAgreementController">
+        <div class="contain">
+            <div class="register boxWider">
+                <div class="title">
+                    <span>{{"title_person_agreement" | translate}}</span>
+                </div>
+                <div class="inputDiv">
+                    <select ng-model="vehicleCategory" id="vehicleCategory"
+                            ng-options="c.id as c.name for c in vehicleCategories"
+                            ng-change="vehicleCategorySelected()">
+                    </select>
+                </div>
+                <div class="inputDiv">
+                    <select ng-model="vehicle" id="vehicle" ng-options="v.id as v.name for v in vehicles">
+                    </select></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="row agreement">
+                <div class="fgtSelectDiv">
+                    <img id="chkReceiveNews" src="image/icon/fgt_button_select.png" ng-click="changedReceiveNews()"/>
+
+                    <div class="text">
+                        {{"label_person_newsletter"|translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="fgtSelectDiv">
+                    <img id="chkAcceptTerms" src="image/icon/fgt_button_unselect.png" ng-model="accept"
+                         ng-click="changedAcceptTerms()" required/>
+
+                    <div class="text">
+                        <a ng-click="acceptTerms()">{{"label_person_accept" | translate}}</a></div>
+                </div>
+            </div>
+            <p style="margin-left: 30%;font-size: 18px;">{{"label_agreement_text" | translate}}</p>
+            <div class="loginDiv buttonBar">
+                <button class="button blue btnLarge bigRounded" ng-disabled="myForm.$invalid" ng-click="save()">
+                    <div>
+                        {{'button_save' | translate}}
+                        <img src="image/icon/button_arrows.png"/>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+</form>

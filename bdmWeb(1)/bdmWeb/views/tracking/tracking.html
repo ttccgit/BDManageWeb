@@ -1,0 +1,85 @@
+﻿<style>
+    .sidebar-left{
+display: block!important;
+}
+
+    .Agent_android .app{
+        height:100%;
+        position: absolute;
+    }
+</style>
+<form name="myForm" novalidate>
+<div class="main" ng-controller="weightTrackingController">
+    <div>
+        <div class="navbar navbar-app navbar-absolute-top bg-blue">
+            <div class="navbar-brand navbar-brand-center">
+                <span>{{'title_weight_tracker' | translate}}</span>
+            </div>
+            <div class="btn-group pull-left btn_menu btn_landscape">
+                <div ng-click="showMainBar()" class="btn btn-navbar sidebar-toggle">
+                    <img src="image/icon/menu_bottom.png" />
+                </div>
+            </div>
+            <div class="btn-group pull-right">
+                <div ng-click="gotoPage()" class="btn btn-navbar">
+                    <img src="image/icon_table.png" />
+                </div>
+            </div>
+        </div>
+        <div class="dataBox">
+            <div>
+                <p>
+                    {{'label_weight_start' | translate}}</p>
+                <span>{{startingWeight | floatFormat}}</span>
+            </div>
+            <div class="border-dotted">
+                <p>
+                    {{'label_weight_current' | translate}}</p>
+                <span>{{currentWeight | floatFormat}}</span>
+            </div>
+            <div>
+                <p>
+                    {{'label_weight_goal' | translate}}
+                    <img src="image/icon_edit.png" ng-click="setGoldWeight()">
+                </p>
+                <span>{{goalWeight | floatFormat}}</span>
+            </div>
+        </div>
+        <div ng-show="isTrackedWeight">
+            <div class="trackerDiv">
+                <a class="button green btnLarge bigRounded">
+                    <div ng-click="updateWeight()">
+                        {{'button_track_weight' | translate}}
+                    </div>
+                </a>
+            </div>
+        </div>
+            <div class="container-box hide">
+                <div class="content star_box">
+                    <span id="trackerDate"></span>
+                    <br/>
+                    <span id="trackWeight"></span>
+                    <div class="arrow_r_blue"></div>
+                </div>
+                <div class="arrow-down"><div class="i"></div></div>
+            </div>
+        <div class="trackerChartDiv">
+            <div class="btn-group nav-tabs weekBar hide" style="padding:0 0 0 0; margin:0 0 0 -150px;background: #FFFFFF">
+                <a class="btn {{chartType == 1?'checked':''}}" ng-click="changeChart(1)">12 Semanas</a><a
+                    class="btn {{chartType == 2?'checked':''}}" ng-click="changeChart(2)">24 Semanas</a>
+                <a class="btn {{chartType == 3?'checked':''}}" ng-click="changeChart(3)">12 Meses</a><a
+                    class="btn {{chartType == 0?'checked':''}}" ng-click="changeChart(0)">Todos</a>
+            </div>
+            <div class="chartArea trackerDiv trackerBox">
+                <div id="plotChart" class="chartBox">
+                </div>
+            </div>
+        </div>
+        <div class="trackerDiv trackerBox tackerStar">
+            <p ng-show="noStarText">
+                {{'message_weight_milestone' | translate}}.</p>
+            <img ng-repeat="milestonesImg in milestonesPics" src="{{milestonesImg}}" />
+        </div>
+    </div>
+</div>
+</form>

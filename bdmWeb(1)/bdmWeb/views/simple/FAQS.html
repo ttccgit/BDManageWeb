@@ -1,0 +1,140 @@
+
+
+    <style>
+        body{
+            font-size: 18px;
+        }
+
+        h1{
+            color:#e94b40;
+            font-weight: bold;
+        }
+        h2{
+            color: #b4b4b4;
+            font-size: 1.2em;
+        }
+        h3{
+            color:#e94b40;
+            font-size: 1em;
+        }
+
+        h3 .font_gray{
+            margin-right: 10px;
+        }
+
+        .font_gray{
+            color: #40535a;
+        }
+        p {
+            font-size: 1em;
+            color: #40535a;
+            display: none;
+            padding-left: 36px;
+
+        }
+        .border_bottom_gray{
+        border-bottom:1px solid #B4B4B4;
+            padding-bottom: 10px;
+        }
+
+        ul{
+            padding-left: 23px;
+        }
+
+        ul li{
+            font-size: 1em;
+            color: #40535a;
+        }
+
+        h4{
+            color: #40535a;
+            border-top: 1px solid #B4B4B4;
+            border-bottom: 1px solid #B4B4B4;
+            line-height: 30px;
+        }
+
+
+    </style>
+    <div ng-if="languageNGIf == 'eng_BR'" ng-controller="howItWorksController" class="ng-scope faq">
+
+        <div class="top_nav align_c">
+            <a ng-click="back()">
+                <img class="top_back" src="image/arrow_left_blue.png"/></a> <span class="font_red">
+                How It Works</span>
+        </div>
+        <div class="content_padding">
+<h3 class="border_bottom_gray" onclick="faq(this)">
+What's the difference between Simple Start and Weight Watchers Mobile?
+</h3>
+<p>Think of the Simple Start app as a starter plan for Weight Watchers.
+    <br />
+    <br />
+By doing Simple Start, you'll learn what to eat to be satisfied by choosing from 2 weeks of delicious, good-for-you meal ideas, built from our Power Foods. If you're new to Weight Watchers, this is a great place to begin.
+    <br />
+    <br />The Weight Watchers Mobile app is the Weight Watchers Plan-made portable. It includes all of our weight-loss tools, including our food and activity Trackers. (There is no tracking in Simple Start.) You can download it at any time, whether or not you've done the Simple Start app.
+</p>
+
+<h3 class="border_bottom_gray" onclick="faq(this)">
+Can vegetarians do Simple Start?
+</h3>
+<p>Yes! There are several vegetarian meals, and even the ones containing meat and fish will work for you if you check out the listed swaps. (Or use the My Meals tool to build your own.)
+</p>
+
+<h3 class="border_bottom_gray" onclick="faq(this)">
+How does Simple Start work if I'm cooking for my family?
+    </h3>
+
+<p>
+Take a favorite recipe and double it. Triple it. It'll still be delicious. (And there are plenty of family-friendly options.)
+</p>
+
+<h3 class="border_bottom_gray" onclick="faq(this)">
+I eat out a lot. Is that off-limits with Simple Start?
+    </h3>
+<p>We fully expect you to live your life while following Weight Watchers Simple Start-and that includes eating out.  (We made sure to include restaurant tips within several of the meals.) But the best way to make sure you're eating the Simple Start way is to bring along your Simple Start shopping list. As long as you're choosing foods from that list, you're good! (Just be sure to tell the waiter you want them prepared without additional oil or butter.)
+</p>
+
+<h3 class="border_bottom_gray" onclick="faq(this)">
+I noticed that there's a lot of fat-free stuff on the list. What if I don't like it?
+    </h3>
+<p>
+Choosing fat-free dairy is a great way to help you get in your daily dose of calcium and other nutrients. But you can always spend your Indulgences on regular dairy products (cheese, ice cream, etc.) if you prefer the taste and texture.
+</p>
+<h3 class="border_bottom_gray" onclick="faq(this)">
+I'm trying to stay away from gluten. Can I do Simple Start?
+    </h3>
+<p>
+Yep.  Since you're eating from a list of less processed food, it's easier to be in control of your choices. Just steer clear of anything that concerns you and seek out guidance from a healthcare professional as needed.
+</p>
+<h3 class="border_bottom_gray" onclick="faq(this)">
+What if I mess up a day (or a few) on Simple Start?
+    </h3>
+<p>
+Had one of those days where you ate everything in sight, and then some? It happens. Don't go crazy trying to figure out how to fix it; just pick yourself up, dust yourself off and put it firmly in the past. Pick your next Simple Start meal, and get back to Plan A.
+</p>
+
+<h3 class="border_bottom_gray" onclick="faq(this)">
+What if I want to do Simple Start over again?
+    </h3>
+<p>
+If you didn't get off on the right foot with Simple Start, that's OK. Just delete the Simple Start app and download it again. That will reset the functionality (the badges, meals you created, etc.) so you can move forward with a clean slate.
+</p>
+
+<h3 class="border_bottom_gray" onclick="faq(this)">
+What if I want more food choices?
+    </h3>
+
+<p>
+If you want to branch out, use the personalized daily <b><i>ProPontos</i></b>&reg; Target we gave you when you joined Weight Watchers, and spend those <b><i>ProPontos</i></b>&reg; values however you want. Simply stick to that Target plus your weekly <b><i>ProPontos</i></b>&reg; Allowance (still 49 per week); you'll have to track everything you eat and pay more attention to portion sizes, but you'll get more flexibility around your food choices.
+<br />
+<br />
+Here's the thing, though: You'll quickly find that it's easier to stick to your daily <b><i>ProPontos</i></b>&reg; Target - and to avoid feeling deprived while you're doing it - if you choose a lot of Weight Watchers Power Foods. That's why we started you off with Simple Start. We wanted you to experience the benefits of these foods.
+</p>
+
+
+</div>
+</div>
+
+    <div ng-if="languageNGIf == 'pt_BR'">
+        <ng-include src="'views/simple/pt_BR/hwFAQS.html'"></ng-include>
+    </div>

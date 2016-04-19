@@ -1,0 +1,110 @@
+<style>
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        color: #e94b40;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    h2 {
+        color: #b4b4b4;
+        font-size: 1.2em;
+    }
+
+    h3 {
+        color: #e94b40;
+        font-size: 1em;
+    }
+
+    h3 .font_gray {
+        margin-right: 10px;
+    }
+
+    .font_gray {
+        color: #40535a;
+    }
+
+    p {
+        font-size: 1em;
+        color: #40535a;
+
+    }
+
+    .border_bottom_gray {
+        border-bottom: 1px solid #B4B4B4;
+        padding-bottom: 10px;
+    }
+
+    ul {
+        padding-left: 23px;
+    }
+
+    ul li {
+        font-size: 1em;
+        color: #40535a;
+    }
+
+    h4 {
+        color: #40535a;
+        border-top: 1px solid #B4B4B4;
+        border-bottom: 1px solid #B4B4B4;
+        line-height: 30px;
+    }
+
+
+</style>
+
+<div ng-if="languageNGIf == 'eng_BR'" ng-controller="howItWorksController" class="ng-scope">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png"/></a> <span class="font_red">
+                How It Works</span>
+    </div>
+    <div class="content_padding">
+
+        <h1>Want More Choices?</h1>
+
+        <h3>If Simple Start is working for you, keep doing it! (It's based on our Simply Filling technique.)</h3>
+
+        <p>If you want to branch out and look for other meals, though, or indulge in foods that aren't in the Simple
+            Start Indulgences list, go to WeightWatchers.com or download the WeightWatchers Mobile app to learn more
+            about Simply Filling.</p>
+
+        <h3>If you'd like even more choice in the foods you eat...</h3>
+
+        <p>
+            Use the personalized daily <b><i>ProPontos</i></b>&reg; Target we gave you when you joined, and spend those
+            <b><i>ProPontos</i></b>&reg; values however you want. Simply stick to that Target plus your weekly <b><i>ProPontos</i></b>&reg;
+            Allowance (still 49 per week); you'll have to track everything you eat and pay more attention to portion
+            sizes, but you'll get more flexibility around your food choices.
+            <br/>
+            <br/>
+            Here's the thing, though: You'll quickly find that it's easier to stick to your daily
+            <b><i>ProPontos</i></b>&reg; Target - and to avoid feeling deprived while you're doing it - if you choose a
+            lot of Vigilantes do Peso Power Foods. That's why we started you off with Express. We wanted you to
+            experience the benefits of these foods.
+        </p>
+
+        <h3>Making the switch</h3>
+
+        <p>Everything you've come to rely on won't just disappear. (Hey, you've learned to enjoy smart and satisfying
+            foods!) And the meal lists? They live right on the Weight Watchers website. (You can also get them by
+            downloading the Weight Watchers mobile app.)
+        </p>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <div style="text-align: center;">
+            <a class="btn btn_orange widthdownload" href="#/pointsIndex">Weight watchers Mobile App</a>
+        </div>
+    </div>
+</div>
+
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/simple/pt_BR/WantMoreChoices.html'"></ng-include>
+</div>

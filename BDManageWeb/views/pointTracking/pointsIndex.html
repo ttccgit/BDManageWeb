@@ -1,0 +1,234 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+
+
+    .sidebar-left{
+        display: block!important;
+    }
+
+</style>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="pointTrackerController">
+        <div id="head">
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <div class="navDate">
+                        <a class="btnLeft" ng-click="prevDate()"><img src="image/arrows_left.png"/></a>
+                        <input type="date" lang="pt" name="trackerDateInput" id="trackerDateInput" ng-change="changeTrackerDate()"
+                               ng-model="trackerDate"  ng-show="!isShowD"/>
+                        <input type="text" id="dateInput"  ng-model="trackerDate"  ng-show="isShowD"/>
+                        <a class="btnRight" ng-show="trackerDateFlag" ng-click="afterDate()"><img src="image/arrows_right.png" /></a>
+                    </div>
+                </div>
+                <div class="btn-group pull-left btn_menu btn_landscape btn_menu_point">
+                    <div ng-click="showMainBar()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/icon/menu_bottom.png"/>
+                    </div>
+                </div>
+                <div class="btn-group pull-right btn_right_point">
+                    <div class="btn btn-navbar sidebar-toggle" ng-click="showDeleteIcon()" ng-model="deleteModel">
+                        <img src="image/edit_botton.png" id="editButton"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress_bar">
+                <span>{{dailyUsedPointsPro}} {{'label_pointTrack_of' | translate}} {{dailyPoint}} ProPontos</span>
+                <strong id="bar" style="width:{{dailyProgress}};"></strong>
+            </div>
+            <div class="dateDiv">
+                <div class="point_box">
+                    <div class="point_org">
+                        <p>{{'label_pointTrack_daily' | translate}}</p>
+
+                        <p>{{'label_pointTrack_used' | translate}}</p>
+
+                        <p class="point_num">{{dailyUsedPoints}}</p>
+
+                    </div>
+                    <div>
+                        <p>{{'label_pointTrack_daily_1' | translate}}</p>
+
+                        <p>{{'label_pointTrack_remaining' | translate}}</p>
+
+                        <p class="point_num">{{dailyRemainingPoints}}
+                            <img src="image/icon_setting_dpt.png" ng-show="dailyPointFlag"  class="redFlag" style="width: 20px;"/>
+                        </p>
+
+                    </div>
+                    <div>
+                        <span class="pro_font"><p>{{'label_pointTrack_weekly' | translate}}</p></span>
+
+                        <p>{{'label_pointTrack_weekly_2' | translate}}</p>
+
+                        <p class="point_num">
+                            {{weeklyRemainingPoints}}
+                            <img src="image/icon_setting_dpt.png" ng-show="weeklyPointFlag"  class="redFlag" style="width: 20px;"/>
+                        </p>
+                    </div>
+                </div>
+                <div class="activity_box">
+                    <span class="pro_font"><p>{{'label_pointTrack_weekly' | translate}}</p></span>
+
+                    <p>{{'label_pointTrack_weekly_1' | translate}}</p>
+
+                    <p class="point_num">{{weeklyActivitiesPoints}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="bodyData" class="myProgress_body">
+            <div class="mealContent">
+                <div class="mealDiv" onclick="expandDiv(this)">
+                    <img src="image/shrink.png" class="arrow_position"/>
+                    <img src="image/breakfast_ico.png" class="icon_position margin_left_6"/>
+                    <span class="margin_left_6"/>{{'label_pointTrack_b' | translate}}</span>
+                    <div class="food_bg">{{breakfastPoint}}</div>
+                    <a href="#/foodList?meal=0"><img src="image/add_ico.png" class="meal_add"/></a>
+
+                    <div class="mealDetails">
+                        <div>
+                            <ul class="ul_none" ng-repeat="food in breakfastFoods">
+                                <li ng-if="food.archived == 1 || food.obsolete == 1" style="color: #A9A9A9" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li ng-if="food.archived == 0 && food.obsolete == 0" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li class="li_right" class="li_right">
+                                    <!--<img src="image/icon_recently_added.png" ng-show="food.recentAdd"/>-->
+                                    <img src="image/icon_my_foods.png" ng-show="food.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="food.powerFood"/>
+                                    <img src="image/favorites_ico_homepage.png" ng-show="food.favorite"/>
+                                    {{food.point}}
+                                    <button class="delete" ng-click="deleteFood(food)" ng-show="food.delete">{{'button_simple_delete' | translate}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear: both;text-align: center;"><a href="#/foodList?meal=0">{{'label_pointTrack_addItem' | translate}}</a></div>
+                    </div>
+                </div>
+                <div class="mealDiv" onclick="expandDiv(this)">
+                    <img src="image/shrink.png" class="arrow_position"/>
+                    <img src="image/lunch_ico.png" class="icon_position margin_left_6"/>
+                    <span class="margin_left_6"/>{{'label_pointTrack_l' | translate}}</span>
+                    <div class="food_bg">{{lunchPoint}}</div>
+                    <a href="#/foodList?meal=1"><img src="image/add_ico.png" class="meal_add"/></a>
+
+                    <div class="mealDetails">
+                        <div>
+                            <ul class="ul_none" ng-repeat="food in lunchFoods">
+                                <li ng-if="food.archived == 1 || food.obsolete == 1" style="color: #A9A9A9" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li ng-if="food.archived == 0 && food.obsolete == 0" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li class="li_right">
+                                    <!--<img src="image/icon_recently_added.png" ng-show="food.recentAdd"/>-->
+                                    <img src="image/icon_my_foods.png" ng-show="food.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="food.powerFood"/>
+                                    <img src="image/favorites_ico_homepage.png" ng-show="food.favorite"/>
+                                    {{food.point}}
+                                    <button class="delete" ng-click="deleteFood(food)" ng-show="food.delete"> {{'button_simple_delete' | translate}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear: both;text-align: center;"><a href="#/foodList?meal=1">{{'label_pointTrack_addItem' | translate}}</a></div>
+                    </div>
+                </div>
+                <div class="mealDiv" onclick="expandDiv(this)">
+                    <img src="image/shrink.png" class="arrow_position"/>
+                    <img src="image/dinner_ico.png" class="icon_position margin_left_6"/>
+                    <span class="margin_left_6"/>{{'label_pointTrack_d' | translate}}</span>
+                    <div class="food_bg">{{dinnerPoint}}</div>
+                    <a href="#/foodList?meal=2"><img src="image/add_ico.png" class="meal_add"/></a>
+
+                    <div class="mealDetails">
+                        <div>
+                            <ul class="ul_none" ng-repeat="food in dinnerFoods">
+                                <li ng-if="food.archived == 1 || food.obsolete == 1" style="color: #A9A9A9"  class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li ng-if="food.archived == 0 && food.obsolete == 0" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li class="li_right">
+                                    <!--<img src="image/icon_recently_added.png" ng-show="food.recentAdd"/>-->
+                                    <img src="image/icon_my_foods.png" ng-show="food.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="food.powerFood"/>
+                                    <img src="image/favorites_ico_homepage.png" ng-show="food.favorite"/>
+                                    {{food.point}}
+                                    <button class="delete" ng-click="deleteFood(food)" ng-show="food.delete"> {{'button_simple_delete' | translate}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear: both;text-align: center;"><a href="#/foodList?meal=2">{{'label_pointTrack_addItem' | translate}}</a></div>
+                    </div>
+                </div>
+                <div class="mealDiv" onclick="expandDiv(this)">
+                    <img src="image/shrink.png" class="arrow_position"/>
+                    <img src="image/snack_ico.png" class="icon_position margin_left_6"/>
+                    <span class="margin_left_6"/>{{'label_pointTrack_s' | translate}}</span>
+                    <div class="food_bg">{{snackPoint}}</div>
+                    <a href="#/foodList?meal=3"><img src="image/add_ico.png" class="meal_add"/></a>
+
+                    <div class="mealDetails">
+                        <div>
+                            <ul class="ul_none" ng-repeat="food in snackFoods">
+                                <li ng-if="food.archived == 1 || food.obsolete == 1" style="color: #A9A9A9" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li ng-if="food.archived == 0 && food.obsolete == 0" class="ul_none_li li_left {{food.deleteIcon}}" ng-click="showDeleteBtn(food)">
+                                    {{food.name}}
+                                </li>
+                                <li class="li_right">
+                                    <!--<img src="image/icon_recently_added.png" ng-show="food.recentAdd"/>-->
+                                    <img src="image/icon_my_foods.png" ng-show="food.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="food.powerFood"/>
+                                    <img src="image/favorites_ico_homepage.png" ng-show="food.favorite"/>
+                                    {{food.point}}
+                                    <button class="delete" ng-click="deleteFood(food)" ng-show="food.delete"> {{'button_simple_delete' | translate}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear: both;text-align: center;"><a href="#/foodList?meal=3">{{'label_pointTrack_addItem' | translate}}</a></div>
+                    </div>
+
+                </div>
+                <div class="mealDiv" onclick="expandDiv(this)">
+                    <img src="image/shrink.png" class="arrow_position"/>
+                    <img src="image/activities_ico.png" class="icon_position margin_left_6"/>
+                    <span class="margin_left_6"/>{{'label_pointTrack_activities' | translate}}</span>
+                    <div class="food_bg food_bg_org">{{activitiesPoint}}</div>
+                    <a href="#/activitiesList"><img src="image/add_ico.png" class="meal_add"/></a>
+
+                    <div class="mealDetails">
+                        <div>
+                            <ul class="ul_none" ng-repeat="activity in activities">
+                                <!--<li ng-if="activity.archived == 1 || activity.obsolete == 1" style="color: #A9A9A9" class="ul_none_li {{activity.deleteIcon}}" ng-click="showDeleteBtnA(activity)">-->
+                                    <!--{{activity.activityName}}-->
+                                <!--</li>-->
+                                <!--<li ng-if="activity.archived == 0 && activity.obsolete == 0" class="ul_none_li {{activity.deleteIcon}}" ng-click="showDeleteBtnA(activity)">-->
+                                    <!--{{activity.activityName}}-->
+                                <!--</li>-->
+                                <li class="ul_none_li {{activity.deleteIcon}}" ng-click="showDeleteBtnA(activity)">
+                                    {{activity.activityName}}
+                                </li>
+                                <li class="li_right">
+                                    <img src="image/favorites_ico_homepage.png" ng-show="activity.isFavorite"/>
+                                    {{activity.point}}
+                                    <button class="delete" ng-click="deleteActivity(activity)" ng-show="activity.delete"> {{'button_simple_delete' | translate}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="clear: both;text-align: center;"><a href="#/activitiesList">{{'label_pointTrack_addItem' | translate}}</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

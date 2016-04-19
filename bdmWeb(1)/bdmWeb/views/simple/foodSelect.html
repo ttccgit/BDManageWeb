@@ -1,0 +1,25 @@
+﻿<div ng-controller="foodSelectController">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png" /></a>
+        <span class="font_red">{{'title_simple_build_a'| translate}} {{'label_simple_meal_time_'+ type |translate}}</span>
+        <input type="button" value="{{'button_simple_done'|translate}}" class="btn btn_save" ng-click="save()"/>
+    </div>
+    <div>
+        <div class="select_food_title">
+            {{'title_simple_food_add'| translate}} ( {{foodTypeTranslate| translate}} )
+        </div>
+        <div class="my_meal_list food_list">
+            <ul>
+                <li ng-repeat="item in foods">
+                    <div class="edit_meal" id="food_select_{{item.id}}">
+                        <div class="div_food_name">
+                            {{item.name}}</div>
+                        <img class="img_Select" src="image/icon/unselect_icon.png" ng-hide="item.select"  ng-click="selectFood(item)" />
+                        <img class="img_Select" src="image/icon/select_icon.png" ng-show="item.select" ng-click="unSelectFood(item)" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

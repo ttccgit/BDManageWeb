@@ -1,0 +1,127 @@
+<form name="myForm" novalidate>
+    <div class="main">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{'label_pointTrack_calculator' | translate}}</span>
+                </div>
+                <div class="btn-group pull-left" ng-controller="memberFoodController">
+                    <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border_top_devide">
+            <ul class="nav nav-tabs bg_blue navFont collect2">
+                <li class="halfLi" id="foodCalcLi"><a href="#foodCalc" toggle="on" parent-active-class="active">{{'tab_pointTrack_fc' | translate}}</a></li>
+                <li class="halfLi" id="activityCalcLi"><a href="#activityCalc" toggle="on" parent-active-class="active">{{'tab_pointTrack_ac' | translate}}</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" toggleable active-class="active" id="foodCalc"
+                     exclusion-group="Calculator">
+                    <div class="trackerBoxOutContent" ng-controller="memberFoodController">
+                        <div class="pointBox">
+                            <div class="pointDiv">
+                                <div class="trackerInputBox">
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_carbs' | translate}}                                        :
+                                        <div class="inputContent"><input type="text" ng-model="carbs"
+                                                                         placeholder="{{'placeholder_pointTrack_grams' | translate}}"
+                                                                         ng-change="calculatePoints()" maxlength="5"/>
+                                        </div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_protein' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="protein"
+                                                                         placeholder="{{'placeholder_pointTrack_grams' | translate}}"
+                                                                         ng-change="calculatePoints()" maxlength="5"/>
+                                        </div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_fat' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="fat" placeholder="{{'placeholder_pointTrack_grams' | translate}}"
+                                                                         ng-change="calculatePoints()" maxlength="5"/>
+                                        </div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_fiber' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="fiber"
+                                                                         placeholder="{{'placeholder_pointTrack_grams' | translate}}"
+                                                                         ng-change="calculatePoints()" maxlength="5"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="propontos_content">
+                                <div class="propontos_img"><span class="font_white" ng-model="point">{{point}}</span></div>
+
+
+                            </div>
+                        </div>
+                        <div class="inputDiv extra_position_1">
+                            {{'label_pointTrack_name' | translate}}
+                            <div class="inputContent"><input type="text" ng-model="name" placeholder="{{'label_pointTrack_name' | translate}}"
+                                                             ng-change="checkName()" maxlength="50" /></div>
+                        </div>
+                        <button class="btn_gray" ng-show="!buttonGray">{{'button_pointTrack_cf' | translate}}</button>
+                        <button class="btn_green" ng-show="buttonGray" ng-click="addMemberFood(false)">{{'button_pointTrack_cf' | translate}}</button>
+
+                    </div>
+                </div>
+                <div class="tab-pane" toggleable active-class="active" id="activityCalc" exclusion-group="Calculator">
+                    <div class="trackerBoxOutContent" ng-controller="memberActivityController">
+                        <div class="pointBox">
+                            <div class="pointDiv">
+                                <div class="trackerInputBox">
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_weight' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="weight"
+                                                                         placeholder="weight" disabled/></div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_duration' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="duration"
+                                                                         placeholder="Minutos"
+                                                                         ng-change="calculatePoints()" maxlength="5"/>
+                                        </div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_intensity' | translate}}:
+                                        <div class="inputContent">
+                                            <select ng-model="intensity"
+                                                    ng-options="i.id as i.name for i in intensityModel"
+                                                    ng-change="calculatePoints()"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="propontos_content">
+                                <div class="propontos_img"><span class="font_white" ng-model="pointCal">{{pointCal}}</span></div>
+
+                            </div>
+                        </div>
+
+                        <div class="inputDiv extra_position_1">
+                            {{'label_pointTrack_name' | translate}}:
+                            <div class="inputContent"><input type="text" ng-model="name" placeholder="{{'label_pointTrack_name' | translate}}"
+                                                             ng-change="checkName()" maxlength="50" /></div>
+                        </div>
+                        <!--<div class="extra_position_1">-->
+                            <!--<img src="image/favorites_null.png" ng-show="!favIconFlag" ng-click="addFav()"/>-->
+                            <!--<img src="image/favorites_Checkednull.png" ng-show="favIconFlag" ng-click="deleteFav()"/>-->
+                            <!--<i>{{'label_pointTrack_favorites' | translate}}</i>-->
+                        <!--</div>-->
+
+                        <button class="btn_gray" ng-show="!buttonGray">{{'button_pointTrack_addToTrack' | translate}}</button>
+                        <button class="btn_green" ng-show="buttonGray" ng-click="addMemberActivity()">{{'button_pointTrack_addToTrack' | translate}}</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

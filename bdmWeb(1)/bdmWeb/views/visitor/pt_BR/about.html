@@ -1,0 +1,48 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+
+    .sidebar-left {
+        display: block !important;
+    }
+
+    .app{
+        height:100%!important;
+        position: relative!important;
+    }
+</style>
+<div ng-controller="aboutUsController">
+    <header id="header" class="logo logo_position">
+        <div class="logo_title">Sobre</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div id="bodyData" class="myProgress_body">
+        <div class="text_padding">
+            <span style="color: red">Versão: v1.8</span>
+
+            <p>
+                O sistema de perda de peso
+                <span style="font-style: italic; font-weight: bold;">ProPontos™</span>
+                e os materiais que o compõem são de propriedade da Weight Watchers International, Inc. O Vigilantes do
+                Peso Marketing Ltda. licencia o sistema aos Associados do Vigilantes do Peso apenas para uso pessoal com
+                o objetivo de perder e controlar seu peso. Qualquer outro tipo de uso é estritamente proibido. Todos os
+                direitos reservados. REPRODUÇÃO PROIBIDA, sob qualquer forma, incluindo, mas não se limitando, a cópias
+                xerográficas, folhetos, programas de emagrecimento, revistas, jornais e disponibilização pela internet.
+            </p>
+
+            <p>Vigilantes do Peso®, Vigilantes do Peso Em Casa™, <span style="font-style: italic; font-weight: bold;">ProPontos™</span>
+                e Vigilantes do Peso® <span style="font-style: italic; font-weight: bold;">Express</span> são marcas de
+                propriedade exclusiva da Weight Watchers International, Inc. na forma da Lei 9.29/96. </p>
+
+            <div>
+                © 2014 Weight Watchers International, Inc.
+            </div>
+        </div>
+    </div>
+</div>

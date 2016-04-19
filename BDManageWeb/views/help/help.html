@@ -1,0 +1,43 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+
+    .sidebar-left {
+        display: block !important;
+    }
+</style>
+<div class="bg_help" ng-controller="weightTrackingController">
+    <header id="head" class="logo logo_position">
+        <div class="logo_title">{{ 'menu_weight_Help' | translate}}</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div id="bodyData" class="myProgress_body">
+        <div class="help">
+            <div class="text_padding">
+                <img class="help_express size_small" src="image/small/logo_express_two.png"/>
+                <a class="help_menu extra_border_bottom" href="#/howWorks">
+                    {{ 'footer_simple_how_it_works' | translate}}
+                    <img src="image/arrow_right.jpg"/></a>
+            </div>
+            <div class="text_padding">
+                <img class="help_express size_small" src="image/small/logo_propontos_two.png"/>
+                <a class="help_menu" href="#/trackingTool">Ferramentas de monitoramento<img
+                        src="image/arrow_right.jpg"/></a>
+                <a class="help_menu" href="#/dailyTarget">Cota Diária de <b><i>ProPontos</i></b><img
+                        src="image/arrow_right.jpg"/></a>
+                <a class="help_menu" href="#/weeklyAllowance"><b><i>ProPontos</i></b> Extras Semanais<img
+                        src="image/arrow_right.jpg"/></a>
+                <a class="help_menu extra_border_bottom" href="#/activity">Atividades<img
+                        src="image/arrow_right.jpg"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

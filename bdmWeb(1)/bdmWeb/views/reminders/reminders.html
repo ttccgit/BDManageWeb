@@ -1,0 +1,66 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+    .sidebar-left{
+        display: block!important;
+    }
+    .app{
+        height:100%!important;
+        position: relative!important;
+    }
+
+</style>
+<div ng-controller="remindersController">
+    <header id="header" class="logo logo_position">
+        <div class="navbar-brand navbar-brand-center white"><span>{{'menu_weight_Reminders' | translate}}</span>  </div>
+        <div class="btn-group pull-left btn_menu btn_landscape">
+            <div ng-click="showMainBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="btn-group pull-right ">
+            <div class="btn btn-navbar sidebar-toggle" ng-click="updateReminderSetting()" >
+                <img src="image/icon/save_button.png" />
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </header>
+    <div id="bodyData" class="myProgress_body">
+        <div class="text_padding setting">
+            <div class="basic_setting">
+                <ul>
+                    <li>
+                        <div class="title_setting">{{'label_reminder_fav' | translate}}</div>
+                        <div class="fr">
+                            <span  class="settingClass">{{showFavoritesPr}}</span>
+                            <select ng-model="fav" ng-options="f.id as f.name for f in favModel"ng-change="favSelected()" class="settingSelect hideClass"></select>
+                            <span class="icon_setting" onclick="supersedeSelect(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title_setting">{{'label_reminder_wt' | translate}}</div>
+                        <div class="fr">
+                            <div class="icon_setting" ng-click="changedWTReminder()">
+                                {{trackDay}}
+                                <img style="width:50px;"  src="image/icon/fgt_button_unselect_t.png" ng-show="!wtReminder" ng-model="wtAccept"/>
+                                <img style="width:50px;"  src="image/icon/fgt_button_select_t.png" ng-show="wtReminder" ng-model="wtAccept"/>
+                             </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title_setting">{{'label_reminder_mt' | translate}}</div>
+                        <div class="fr">
+                            <div class="icon_setting" ng-click="changedMTReminder()">
+                                {{meetingDay}}
+                                <img style="width:50px;"  src="image/icon/fgt_button_unselect_t.png" ng-show="!mtReminder" ng-model="mtAccept"/>
+                                <img style="width:50px;"  src="image/icon/fgt_button_select_t.png" ng-show="mtReminder" ng-model="mtAccept"/>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

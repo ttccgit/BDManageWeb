@@ -1,0 +1,41 @@
+.font_white {
+    font-size: 1.25em;
+}
+
+.scroll_head {
+    width: 100%;
+}
+
+.scroll_img {
+    width: 100%;
+}
+
+.float_pad {
+    width: 100%;
+}
+
+.propontos {
+
+    top: 5%;
+    left: 67%;
+}
+
+.simple_box .scroll_slider img, .simple_box .item .item_name {
+text-align: center;
+}
+
+.simple_box .item .imgV {
+    right: .5em;
+}
+
+@media only screen and (min-width: 768px) 
+{
+    .simple_box .scroll_slider img, .simple_box .item .item_name {
+
+    }
+    
+    .simple_box .item .imgV {
+        right: 2%;
+        margin-right: .2em;
+    }
+}

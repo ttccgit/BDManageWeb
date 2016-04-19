@@ -1,0 +1,35 @@
+
+<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="retrieveEmailController">
+        <div class="contain">
+            <div class="title">
+                <span>{{'label_login_forgot_email' | translate}}?</span>
+            </div>
+            <div class="forgotEmail">
+                <div class="inputDiv inputMiddle">
+                    <img src="image/icon/CPF_icon.png"/>
+
+                    <div class="inputContent">
+                        <input type="text" placeholder="{{'placeholder_login_cpf' | translate}}" ng-model="cpf"
+                               ng-keyup="verifyCPFFormat(cpf,$event)"
+                               maxlength="14" onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="icon_go" ng-click="retrieveEmail(cpf)"></div>
+                <!--<img class="btnCPF imgContinue" src="image/icon/CPF_enter_button.png" ng-click="retrieveEmail(cpf)"/>-->
+                <div class="loginDiv">
+                    <a class="button blue btnLarge bigRounded">
+                        <div onclick="window.history.go(-1)" >
+                            {{"button_back" | translate}}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ng-include src="'views/signUp/footer.html'"></ng-include>
+    </div>
+</form>

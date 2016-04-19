@@ -1,0 +1,93 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="foodDetailsController">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{trackerDate}}</span>
+                </div>
+                <div class="btn-group pull-left">
+                    <div onclick="window.history.go(-1)" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border_top_devide">
+            <div class="trackerBoxOutContent">
+                <div class="pointBox">
+                    <div class="pointDiv">
+                        <div class="pointTitle">{{name}}
+                            <img src="image/icon_recently_added.png" ng-show="recentAdd"/>
+                            <img src="image/icon_my_foods.png" ng-show="memberFood"/>
+                            <img src="image/triangle_ico.png" ng-show="powerFood"/>
+                            <img src="image/favorites_ico_homepage.png" ng-show="favorite"/>
+                        </div>
+                        <div class="favIcon">
+                            <img src="image/favorites_null.png" ng-show="!favIconFlag" ng-click="addFav()"/>
+                            <img src="image/favorites_Checkednull.png" ng-show="favIconFlag" ng-click="deleteFav()"/>
+                            <i>{{'label_pointTrack_favorites' | translate}}</i>
+                        </div>
+
+                    </div>
+                    <div class="propontos_content">
+                        <div class="propontos_img"><span class="font_white" ng-model="point">{{point}}</span></div>
+                        <!--<img src="image/propontos.png">-->
+
+                    </div>
+                    <div class="servingTop">
+                        <div>{{'label_pointTrack_servings' | translate}}:</div>
+                        <div class="inputDiv light_blue width_40">
+                            <select ng-model="servingsWhole" ng-options="i.id as i.name for i in servingsWholeModel"
+                                    ng-change="servingChanged()"></select>
+                        </div>
+                        <div class="inputDiv light_blue width_40">
+                            <select ng-model="fractionId"
+                                    ng-options="i.id as i.name for i in servingsFractionIdModel"
+                                    ng-change="servingChanged()"></select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn_green" ng-click="addFoodTracker()">{{'button_pointTrack_addToTrack' | translate}}</button>
+
+            </div>
+            <div class="trackerBox pointBox fix_margin">
+                <div>
+                    <div class="recipesNotes">
+                        <img ng-src="{{recipesImg}}"/>
+                    </div>
+                    <div class="recipesNotes">
+                        <p>{{'label_pointTrack_pt' | translate}}: </p>
+                        <p><b ng-model="prepareTime">{{prepareTime}}</b> {{'label_pointTrack_min' | translate}}</p>
+
+                        <!--<p>{{'label_pointTrack_ct' | translate}}:<b ng-model="cookTime">{{cookTime}}</b> {{'label_pointTrack_min' | translate}}</p>-->
+
+                        <p>{{'label_pointTrack_lod' | translate}}: </p>
+                        <p><b ng-model="difficultyLevel">{{difficultyLevel}}</b></p>
+                    </div>
+                </div>
+                <div class="recipesContent" ng-model="instruction"></div>
+            </div>
+            <div class="trackerBox pointBox fix_margin">
+                <ul class="nav nav-tabs recipes-nav-tabs navFont collect2">
+                    <li class=""><a href="#ingre" toggle="on" parent-active-class="active">{{'tab_pointTrack_ingredients' | translate}}</a></li>
+                    <li class=""><a href="#note" toggle="on" parent-active-class="active">{{'tab_pointTrack_in' | translate}}</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" toggleable active-class="active" default="active" id="ingre"
+                         exclusion-group="Activities">
+                        <div ng-repeat="ingredient in ingredients">
+                            <!--<p >{{ingredient.name}}</p>-->
+                            <p>{{ingredient.uomCount}} {{ingredient.name}}</p>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" toggleable active-class="active" id="note" exclusion-group="Activities">
+                        <p id="instruction">{{instruction}} </p>
+
+                        <p>{{note}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

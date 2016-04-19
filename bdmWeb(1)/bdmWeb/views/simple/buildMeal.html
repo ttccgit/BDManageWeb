@@ -1,0 +1,41 @@
+﻿<div ng-controller="buildMealController">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png" /></a> <span class="font_red">
+                {{'title_simple_build_a'| translate}} {{'label_simple_meal_time_'+ type |translate}}</span>
+        <input type="button" value="{{'button_simple_save'| translate}}" class="btn btn_save" ng-click="save()" />
+    </div>
+    <div class="meal_content_box">
+        <div class="build_meals_title font_red">
+            {{'label_simple_create_your_own'| translate}} {{('label_simple_meal_time_'+ type |translate).toLowerCase()}}
+        </div>
+        <div class="btn-group food-type-select">
+            <a class="btn {{foodType.checked?'checked':''}}" ng-repeat="foodType in foodsType"
+                href="#/foodSelect/{{foodType.id}}/{{mealTime}}">
+                <div class="food_select_content">
+                    <img src="image/icon/{{foodType.checked?foodType.imgc:foodType.img}}" />
+                    <div>
+                        {{foodType.translate| translate}}</div>
+                </div>
+            </a>
+        </div>
+        <div class="my_meal_list">
+            <div class="my_meal_head font_red">
+                {{'label_simple_my_meal'| translate}}
+                <input ng-hide="editMode" type="button" value="{{'button_simple_edit'|translate}}" class="btn btn_edit" ng-click="edit()" />
+                <input ng-show="editMode" type="button" value="{{'button_simple_done'|translate}}" class="btn btn_edit" ng-click="done()" />
+            </div>
+            <ul>
+                <li ng-repeat="item in foods">
+                    <div ng-hide="editMode">
+                        {{item.name}}</div>
+                    <div ng-show="editMode" class="edit_meal" id="food_edit_{{item.id}}">
+                        <img class="imgDel" src="image/icon/icon_delete.png" ng-click="showDelete(item)" />
+                        <div class="div_meal_name">
+                            {{item.name}}</div>
+                        <input type="button" value="{{'button_simple_delete'|translate}}" class="btn btn_del" ng-click="deleteMeal(item.id)" /></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

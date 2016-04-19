@@ -1,0 +1,39 @@
+<div class="bg_help" ng-if="languageNGIf == 'eng_BR'" ng-controller="weightTrackingController">
+    <header class="logo logo_position">
+        <div class="logo_title">Help</div>
+        <div class="btn-group pull-left btn_menu btn_back">
+            <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/back_button.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="help">
+            <div class="text_padding">
+                <img class="help_express" src="image/small/LogoExpress.png"/>
+            </div>
+            <div class="text_padding">
+                <ul class="font_recipe black">
+                    <li>How it Works</li>
+                </ul>
+                <span>
+                <p>It's 2-week starter plan for people who are new to Vigilantes do Peso(or current mem-bers who want to
+                    re-spark their motivational.)</p>
+
+                <p>Learning what to eat an important first step in losing weight.That's why we create Express - so
+                    you'll know the right foods to eat to be satisfied. It's a no-brainer,we've done the legwork for
+                    you.Just pick from the list of delicious, good-for-you meals, enjoy the food and you can start
+                    losing weight.</p>
+
+                <p>Every day you can visit the app and tell us how you're doing.</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/help/pt_BR/hwHowWorks.html'"></ng-include>
+</div>
+
+

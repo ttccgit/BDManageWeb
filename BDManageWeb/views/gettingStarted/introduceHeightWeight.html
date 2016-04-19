@@ -1,0 +1,113 @@
+<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="introduceWeightController">
+        <div class="contain">
+            <div class="register boxWider">
+                <div class="title">
+                    {{'title_introduce_before' | translate}}
+                </div>
+                <div class="common_title">
+                    {{'title_introduce_detail' | translate}}
+                </div>
+                <div class="common_info">
+                    <div class="inputDiv">
+                        <img src="image/icon/birthday_icon.png"/>
+
+                        <!--<div class="inputContent">-->
+                            <!--<input type="date" placeholder="enter your birthday" ng-model="birthday" ng-show="!isShowB"/>-->
+                            <!--<input type="text" id="birthday" placeholder="enter your birthday" ng-model="birthday" ng-show="isShowB"/>-->
+                        <!--</div>-->
+                        <div class="inputContent extra_for_date">
+                            <input id="birthday" type="text" placeholder="{{'placeholder_person_birthday'|translate}}" ng-model="birthday"
+                                ng-keyup="verifyBirthdayFormat()" maxlength="10"/>
+                        </div>
+                    </div>
+                    <div class="inputDiv">
+                        <img src="image/icon/icon_rule.png"/>
+
+                        <div class="inputContent">
+                            <input id="txtHeight" type="text" placeholder="{{'placeholder_introduce_height' | translate}}"
+                                   ng-model="height"
+                                   ng-keyup="clearHeightNoNum()"/>
+                        </div>
+                    </div>
+                    <div class="inputDiv">
+                        <img src="image/icon/icon_clock.png"/>
+
+                        <div class="inputContent">
+                            <input id="txtWeight" type="text" placeholder="{{'placeholder_introduce_weight' | translate}}"
+                                   ng-model="weight" ng-keyup="clearWeightNoNum()"/>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="btn-group justified nav-tabs selectBar sexBar" style="padding: 0 0 0 0">
+                        <a id="chkMale" class="btn" value="1" ng-click="checkedMale()"></a><a id="chkFemale"
+                                                                                              class="btn" value="0"
+                                                                                              ng-click="checkedFemale()"></a>
+                    </div>
+                    <div id="isNurse" ng-show="gender == 0">
+                        <div class="row">
+                            <div class="fgtSelectDiv selectDiv">
+                                <img id="chkNursing" src="image/icon/fgt_button_unselect.png"
+                                     ng-click="changedNursing(true)"/>
+
+                                <div class="text">
+                                    {{'label_introduce_nursing' | translate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="isNursing">
+                            <div class="fgtSelectDiv selectDiv">
+                                <img id="chkFullTime" src="image/icon/fgt_button_unselect.png"
+                                     ng-click="changedFullTime(true)"/>
+
+                                <div class="text">
+                                    {{'label_introduce_full_time' | translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inputDiv">
+                        <img src="image/icon/icon_date.png"/>
+                        <div class="inputContent">
+                            <select ng-model="meetingDayOfWeek" ng-options="c.id as c.name for c in meetingDays" ng-show="!isShowMeetingDay">
+                            </select>
+                            <div style="width: 100% !important;" ng-click="showMeetingDaySelect()" ng-show="isShowMeetingDay">
+                                <span class ="tip_long" style="color: #A9A9A9" >Defina o dia da sua reunião (poderá ser trocado)</span>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="noticeInfo">
+                        <img src="image/icon/password_notice_icon.png"/>
+                        <span>{{'message_introduce_tracking_day' | translate}}</span>
+                    </div>
+                    <div class="inputDiv">
+                        <img src="image/icon/icon_smile.png"/>
+
+                        <div class="inputContent">
+                            <input type="text" id="txtWeightGoal" placeholder="{{'placeholder_introduce_goal' | translate}}"
+                                   ng-model="weightGoal"
+                                   ng-keyup="clearGoalNoNum()"/>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="loginDiv buttonBar">
+                    <a class="button blue btnLarge bigRounded" ng-click="next()">
+                        <div>
+                            {{'button_continue' | translate}}
+                            <img src="image/icon/button_arrows.png"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,64 @@
+﻿<div ng-controller="simpleDetailController">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png"/></a>
+        <span class="top_title font_red">{{'title_simple_meal_details'| translate}}</span>
+    </div>
+    <div class="simplePage">
+        <h2 class="font_red font_w_b padding_b_d5">
+            {{meal.name}}<img id="imgFavorite" src="image/star_icon_gray.png" ng-click="modifyFavorite()"/></h2>
+
+        <div ng-if="meal.ingredients != null && meal.ingredients.length > 0" class="meal_detail_box border_t_g">
+            <h3 class="font_red">
+                {{'label_simple_ingredients'| translate}}</h3>
+            <ul class="meal_ul_list">
+                <li ng-repeat="item in meal.ingredients">{{item}}</li>
+            </ul>
+        </div>
+        <div ng-if="meal.instructions != null && meal.instructions != ''" class="meal_detail_box">
+            <h3 class="font_red">
+                {{'label_simple_instructions'| translate}}</h3>
+
+            <p>
+                {{meal.instructions}}
+            </p>
+        </div>
+        <div ng-if="meal.imgPath != null" class="meal_detail_box">
+            <img src="{{meal.imgPath}}"/>
+        </div>
+        <div ng-if="meal.swaps != null && meal.swaps != ''" class="meal_detail_box">
+            <h3 class="font_red">
+                {{'label_simple_swaps'| translate}}</h3>
+
+            <p class="padding_b_1">
+                {{meal.swaps}}
+            </p>
+        </div>
+        <div ng-if="meal.flavorBoosts != null && meal.flavorBoosts != ''" class="meal_detail_box border_t_g">
+            <h3 class="font_red">
+                {{'label_simple_flavor_boosts'| translate}}</h3>
+
+            <p class="padding_b_1">
+                {{meal.flavorBoosts}}
+            </p>
+        </div>
+        <div ng-if="meal.mealBoostsImages != null && meal.mealBoostsImages.length > 0" class="border_t_g padding_b_1 meal_detail_box">
+            <div class="width_32 boosts_box" ng-repeat="boost in meal.mealBoostsImages">
+                <img src="{{boost.imagePath}}"/>
+
+                <div>
+                    {{boost.name}}
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div ng-if="meal.others != null && meal.others != ''" class="meal_detail_box border_t_g">
+            <h3 class="font_red">
+                {{'label_simple_others'| translate}}</h3>
+
+            <p>
+                {{meal.others}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<style>
+    .app {
+        background: #eef3f7;
+        overflow: hidden;
+    }
+</style>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="recipesController">
+        <div id="head">
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <select ng-model="meal" id="" ng-options="m.id as m.name for m in mealModel"
+                            class="navSelect"></select>
+                </div>
+                <div class="btn-group pull-left">
+                    <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+            </div>
+            <div class="search_box">
+                <div class="inputDiv searchDiv">
+                    <div class="inputContent">
+                        <input type="text" placeholder="{{'placeholder_recipe_search' | translate}}" ng-model="searchName" ng-keydown="extendSearch($event.keyCode)"/>
+                    </div>
+                    <div ng-click="searchAllRecipes(searchName)" class="btn_search" id="btnSearch">
+                        <img class="btn_search_1"  src="image/icon/button_search2.png"/>
+                        <!--<img class="btn_search_2" ng-show="!showSearchBtn" src="image/icon/button_search3.png"/>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bodyData" class="myProgress_body">
+            <!--<div class="search_box">-->
+                <!--<div class="inputDiv searchDiv">-->
+                    <!--<div class="inputContent">-->
+                        <!--<input type="text" placeholder="{{'placeholder_recipe_search' | translate}}" ng-model="searchName"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div>
+                <ul class="nav nav-tabs bg_blue navFont collect3">
+                    <li class="middleLi"><a href="#recently" toggle="on" parent-active-class="active"
+                                            ng-click="getRecentlyRecipes()">{{'tab_pointTrack_recipes_ra' | translate}}</a></li>
+                    <li class="middleLi"><a href="#fav" toggle="on" parent-active-class="active" ng-click="getFavoriteRecipes()">{{'tab_pointTrack_favorites' | translate}}</a>
+                    </li>
+                    <li class="middleLi"><a href="#foods" toggle="on" parent-active-class="active" ng-click="getAllRecipes()">{{'tab_pointTrack_ap' | translate}}</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane" toggleable active-class="active" default="active" id="recently"
+                     exclusion-group="Activities">
+                    <div class="trackerBox pointBox pointList fix_margin">
+                        <div style="text-align: center;"><img style="margin:1em;" src="image/loader.gif" ng-show="loadImg"/></div>
+                        <div ng-show="recFlag">{{'message_pointTrack_noRItem' | translate}}</div>
+                        <!--<div ng-show="(recentlyRecipes | filter:ignoreAccents).length == 0 && !loadImg && !recFlag">{{'message_pointTrack_noRItem' | translate}}</div>-->
+                        <div ng-repeat="recipe in recentlyRecipes">
+                            <div ng-show="recipe.titleFlag" class="tableTitle">{{recipe.showTitle}}</div>
+                            <div ng-show="!recipe.titleFlag" class="tableContent" ng-click="go2Details(recipe)">
+                                <!--<div class="tableInfo">{{recipe.name}}</div>-->
+                                <div ng-if="recipe.archived == 1 || recipe.obsolete == 1" class="tableInfo" style="color: #A9A9A9">{{recipe.name}}</div>
+                                <div ng-if="recipe.archived == 0 && recipe.obsolete == 0" class="tableInfo">{{recipe.name}}</div>
+                                <div class="tableNo">
+                                    <!--<img src="image/icon_recently_added.png" ng-show="food.recentAdd"/>-->
+                                    <img src="image/icon_my_foods.png" ng-show="recipe.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="recipe.powerFood"/>
+                                    <img src="image/favorites_ico_homepage.png" ng-show="recipe.favorite"/>
+                                    {{recipe.point}}
+                                </div>
+                                <div style="padding-left: 1em">1 porção(ões)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" toggleable active-class="active" id="fav" exclusion-group="Activities">
+                    <div class="trackerBox pointBox pointList fix_margin">
+                        <div style="text-align: center;"><img style="margin:1em;" src="image/loader.gif" ng-show="loadImg"/></div>
+                        <div ng-show="favFlag">{{'message_pointTrack_noFItem' | translate}}</div>
+                        <!--<div ng-show="(favRecipes | filter:ignoreAccents).length == 0 && !loadImg && !favFlag">{{'message_pointTrack_noFItem' | translate}}</div>-->
+                        <div ng-repeat="recipe in favRecipes">
+                            <div ng-show="recipe.titleFlag" class="tableTitle">{{recipe.showTitle}}</div>
+                            <div ng-show="!recipe.titleFlag" class="tableContent" ng-click="go2Details(recipe)">
+                                <!--<div class="tableInfo">{{recipe.name}}</div>-->
+                                <div ng-if="recipe.obsolete == 1" class="tableInfo" style="color: #A9A9A9">{{recipe.name}}</div>
+                                <div ng-if="recipe.obsolete == 0" class="tableInfo">{{recipe.name}}</div>
+                                <div class="tableNo">
+                                    <img src="image/icon_recently_added.png" ng-show="recipe.recentAdd"/>
+                                    <img src="image/icon_my_foods.png" ng-show="recipe.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="recipe.powerFood"/>
+                                    <!--<img src="image/favorites_ico_homepage.png" ng-show="food.favorite"/>-->
+                                    {{recipe.point}}
+                                </div>
+                                <div style="padding-left: 1em">1 porção(ões)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" toggleable active-class="active" id="foods" exclusion-group="Activities">
+                    <div class="trackerBox pointBox pointList fix_margin">
+                        <div style="text-align: center;"><img style="margin:1em;" src="image/loader.gif" ng-show="loadImg"/></div>
+                        <div ng-show="allFlag">{{'message_pointTrack_noItem' | translate}}</div>
+                        <div ng-show="(allRecipes | filter:ignoreAccents).length == 0 && !loadImg && !allFlag">{{'message_pointTrack_noItem' | translate}}</div>
+                        <div ng-repeat="recipe in allRecipes | filter:ignoreAccents">
+                            <div ng-show="recipe.titleFlag" class="tableTitle">{{recipe.showTitle}}</div>
+                            <div ng-show="!recipe.titleFlag" class="tableContent" ng-click="go2Details(recipe)">
+                                <div class="tableInfo">{{recipe.name}}</div>
+                                <div class="tableNo">
+                                    <img src="image/icon_recently_added.png" ng-show="recipe.recentAdd"/>
+                                    <img src="image/icon_my_foods.png" ng-show="recipe.memberFood"/>
+                                    <img src="image/triangle_ico.png" ng-show="recipe.powerFood"/>
+                                    <img src="image/favorites_ico_homepage.png" ng-show="recipe.favorite"/>
+                                    {{recipe.point}}
+                                </div>
+                                <div style="padding-left: 1em">1 porção(ões)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

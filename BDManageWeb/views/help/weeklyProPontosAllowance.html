@@ -1,0 +1,46 @@
+<div class="bg_help" ng-if="languageNGIf == 'eng_BR'" ng-controller="weightTrackingController">
+    <header class="logo logo_position">
+        <div class="logo_title">Help</div>
+        <div class="btn-group pull-left btn_menu btn_back">
+            <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/back_button.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="help">
+            <div class="text_padding">
+                <img class="help_express" src="image/small/LogoProPontos.png"/>
+            </div>
+            <div class="text_padding">
+                <ul class="font_recipe black">
+                    <li>Weekly<span class="pro_font">  ProPontos® </span>Allowance</li>
+                </ul>
+                <span>
+                <p> Simply, you get an extra 49 <span class="pro_font">  ProPontos® </span> values per week, to give you
+                    some flexibility with the<span class="pro_font">  ProPontos</span> system, and help you enjoy the
+                    foods you love.
+                    You don’t have to use it, but we hope you will. And you can still lose weight, even if you use it
+                    all. </p>
+
+                <p>There’s no restriction on the kinds of food and drink you use it on. You can use it all at once
+                    during the week (say, at a party), or little by little throughout the week (say, for a daily
+                    dessert).
+                    If you want the flexibility of the weekly <span class="pro_font">  ProPontos</span> Allowance but
+                    don’t want to spend as many as 49 extra <span class="pro_font">  ProPontos</span> values, you can
+                    adjust your Allowance in the settings section of our mobile apps.
+                </p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/help/pt_BR/hwWeeklyProPontosAllowance.html'"></ng-include>
+</div>
+
+
+
+

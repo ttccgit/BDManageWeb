@@ -1,0 +1,237 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+    .Agent_android .app{
+        height:100%;
+        position: absolute;
+    }
+
+</style>
+<div ng-controller="articlesController">
+<header class="logo logo_position">
+    <div class="logo_title">{{'menu_weight_Articles'| translate}}</div>
+    <div class="btn-group pull-left btn_menu">
+        <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+            <img src="image/icon/menu_bottom.png"/>
+        </div>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div class="content_box">
+    <div class="scroll_head">
+        <div class="scroll_img">
+            <div id="slider" class="scroll_slider">
+                <div class="pic_group">
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/ask_the.png"/>
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_ask'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/can_meditation.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_can'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/4fitness.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_fitness'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/fashion.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_fashion'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/food_qa.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_5_reason'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/7simple.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_7_simple'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/9tip.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_9_tips'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/is_foot.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_9'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/makeup.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_makeup'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/pamper.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_pamper'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/the_truth.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_the'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/vegetarian_eating.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_veg'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/10shop.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_10_shopping'| translate}}
+                        </p>
+                    </div>
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/workout_injuries.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_work'| translate}}
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/10way.png">
+                        </a>
+
+                        <p class="instruction">
+                            {{'title_article_10_ways'| translate}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="control pagination_control">
+                <div class="arrow_l">
+                    <img src="image/arrow_left.png"/>
+                </div>
+                <ul id="pagination">
+                </ul>
+                <div class="arrow_r">
+                    <img src="image/arrow_right.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="static_title_more" ng-click="more()">
+            {{'read_more_about'| translate}}
+        </div>
+        <div class="read_more_site">
+            <a href="{{moreUrl}}" target="_blank">{{'success_stories_read_more'| translate}}</a>
+        </div>
+    </div>
+    <div class="scroll_body hide">
+        <div class="up" ng-click="back()"> <img src="image/icon/up.png"/></div>
+
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/askPersonalTrainer.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/canMeditationHelp.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/fitnessResolutionsForTheNewYear.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/fashionTricks.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/5reasonsYoureAlwaysStarving.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/7simpleChangesThatWillHelpYouLoseWeight.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/9tipsWhenYouAreShoppingForOne.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/9Ways.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/makeUpTips.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/pamper.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/theTruth.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/vegetarianEating.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/10shoppingTipsForFamilies.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/workoutInjuries.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/10waysToSteadyTheScaleDuringTheHolidays.html'"></ng-include>
+        </div>
+
+    </div>
+    <div class="clear">
+    </div>
+</div>
+</div>

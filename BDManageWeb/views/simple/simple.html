@@ -1,0 +1,71 @@
+﻿<style>
+    .sidebar-left {
+        display: block !important;
+    }
+
+    .app{
+        height:100%!important;
+        position: relative!important;
+    }
+</style>
+<div ng-controller="simpleController">
+    <header class="logo simple_header">
+        <div class="logo_title simple_logo_title">{{'title_simple_meal_ideas'| translate}}</div>
+        <div class="btn-group pull-left btn_menu btn_menu_simple" ng-controller="simpleMenuController">
+            <div ng-click="showSimpleBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_icon.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box simple_box">
+        <div class="simple_type">
+            <div class="selectContainer">
+                <span class="selectOption"></span>
+            </div>
+            <div class="selectBody">
+                <ul class="selectMenu">
+                </ul>
+            </div>
+        </div>
+        <div>
+            <ng-include src="'views/simple/meals.html'"
+                        ng-if="meal != mealTime.Snacks && meal != mealTime.Indulgences"></ng-include>
+            <ng-include src="'views/simple/mealsExtra.html'" ng-if="meal == mealTime.Snacks"></ng-include>
+            <ng-include src="'views/simple/mealsIndulgences.html'" ng-if="meal == mealTime.Indulgences"></ng-include>
+        </div>
+        <div class="btn-group justified nav-tabs navbar-absolute-bottom mealFooter static">
+            <a class="btn checked">
+                <img class="imgNormal" src="image/icon/meal ideas_blue.png"/><img class="imgChecked"
+                                                                                  src="image/icon/meal ideas_red.png"/>
+
+                <div>
+                    {{'footer_simple_meal_ideas'| translate}}
+                </div>
+            </a><a class="btn" href="#/myMeals">
+            <img class="imgNormal" src="image/icon/my meals_blue.png"/><img class="imgChecked"
+                                                                            src="image/icon/my meals_red.png"/>
+
+            <div>
+                {{'footer_simple_my_meals'| translate}}
+            </div>
+        </a><a class="btn" href="#/myProgress">
+            <img class="imgNormal" src="image/icon/my progress_blue.png"/><img class="imgChecked"
+                                                                               src="image/icon/my progress_red.png"/>
+
+            <div>
+                {{'footer_simple_my_progress'| translate}}
+            </div>
+        </a><a class="btn" href="#/howItWorks">
+            <img class="imgNormal" src="image/icon/how it works_blue.png"/><img class="imgChecked"
+                                                                                src="image/icon/how it works_red.png"/>
+
+            <div>
+                {{'footer_simple_how_it_works'| translate}}
+            </div>
+        </a>
+        </div>
+        <div class="mealBottom">
+        </div>
+    </div>
+</div>

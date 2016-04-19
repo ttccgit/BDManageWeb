@@ -1,0 +1,49 @@
+<div class="bg_help" ng-if="languageNGIf == 'eng_BR'" ng-controller="weightTrackingController">
+    <header class="logo logo_position">
+        <div class="logo_title">Help</div>
+        <div class="btn-group pull-left btn_menu btn_back">
+            <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/back_button.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="help">
+            <div class="text_padding">
+                <img class="help_express" src="image/small/LogoProPontos.png"/>
+            </div>
+            <div class="text_padding">
+                <ul class="font_recipe black">
+                    <li>Tracking tool</li>
+                </ul>
+                <span>
+                <p> What is tracking, and why should I do it?</p>
+
+                <p> Tracking means keeping tabs on the ProPontos value of everything you eat and all the activity you
+                    do.You'll also track your weight once a week.</p>
+
+                <p> Tracking makes you aware of what you're eating and how many ProPontos values you're using.Over time
+                    it'll teach you how to make smarter food choices, and it'll also show you where trouble spots
+                    lurk.Best of all, studies show that keeping track of food intake can help with weight loss success.
+                </p>
+                 <p>
+                     How do I track?<br>
+                     Easy! You can track in the ProPontos Tracker, on the mobile App, or on paper.
+                 </p>
+                 <p>
+                     Food<br>
+                     start tracking - you'll quickly get the hang of it(and you'll find tips to help you along the
+                     way).
+                 </p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="languageNGIf == 'pt_BR'">
+    <ng-include src="'views/help/pt_BR/hwTrackingTool.html'"></ng-include>
+</div>
+
+

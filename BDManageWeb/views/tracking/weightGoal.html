@@ -1,0 +1,33 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="weightGoalController">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{'label_weight_goal' | translate}}</span>
+                </div>
+                <div class="btn-group pull-left">
+                    <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/icon_back.png">
+                    </div>
+                </div>
+            </div>
+            <div class="trackerDiv trackerBox">
+                <p> {{'label_weight_your' | translate}} {{currGoalWeight | floatFormat}} Kg. {{'label_weight_please' | translate}}
+                    {{aboveGoalWeight | floatFormat}} Kg. </p>
+
+                <div class="inputDiv" style="margin-bottom: 1em;">
+                    <div>{{'label_weight_new' | translate}}</div>
+                    <div class="inputContent goalInput">
+                        <input type="text" ng-model="goalWeight" ng-keyup="clearGoalNoNum()"/>
+                    </div>
+                </div>
+
+
+                <button class="btn_lightgreen" ng-click="saveWeight()">{{'button_update' | translate}}</button>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</form>

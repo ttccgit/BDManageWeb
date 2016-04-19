@@ -1,0 +1,207 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+    .sidebar-left{
+        display: block!important;
+    }
+</style>
+<div ng-controller="settingController">
+    <div id="head" class="logo logo_position">
+        <div class="navbar-brand navbar-brand-center white"><span>{{'menu_weight_Settings' | translate}}</span>  </div>
+        <div class="btn-group pull-left btn_menu btn_landscape">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="btn-group pull-right ">
+            <div class="btn btn-navbar sidebar-toggle" ng-click="saveSetting()" >
+                <img src="image/icon/save_button.png" />
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="bodyData"  class="myProgress_body">
+        <div class="text_padding setting">
+            <div class="basic_setting">
+                <ul>
+                    <li>
+                        <span class="title_setting">{{'label_setting_email' | translate}}</span>
+                        <div class="fr">
+                            <input id="txtEmail" type="email" ng-model="email" ng-blur="changeEmail()" style="width: 265px" />
+                            <span class="icon_setting" onclick="showEditBorder(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting">{{'label_setting_ps' | translate}}</span>
+                        <div class="fr">
+                        <span class="icon_setting" ng-click="resetPassword()">
+                            <input type="password" ng-model="password" readonly/>
+                            <img src="image/setting/edit_icon.png" />
+                        </span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting">{{'label_setting_height' | translate}}</span>
+                        <div class="fr">
+                            <input type="text" ng-model="height"  ng-blur="changeHeight()"   style="width: 50px;"/><span style="position: relative;top: 4px;">CM</span>
+                            <span class="icon_setting" onclick="showEditHeight(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <input ng-model="nursing" ng-show="0">
+                        <input ng-model="onlyBreastMilk" ng-show="0">
+                        <span class="title_setting">{{'label_setting_gender' | translate}}</span>
+                        <div style="width: 80%;margin-left: 10%;">
+                            <div class="btn-group justified nav-tabs selectBar sexBar" style="padding: 0 0 0 0">
+                                <a id="chkMale" class="btn" value="1" ng-click="checkedMale()"></a>
+                                <a id="chkFemale" class="btn" value="0" ng-click="checkedFemale()"></a>
+                            </div>
+                            <div id="isNurse" ng-show="gender == 0">
+                                <div class="row" style="display: inline-block;">
+                                    <div class="fgtSelectDiv selectDiv">
+                                        <img id="chkNursing" src="image/icon/fgt_button_unselect.png"
+                                             ng-click="changedNursing(true)"/>
+                                        <div class="text">
+                                            {{'label_introduce_nursing' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-show="isNursing" style="display: inline-block;">
+                                    <div class="fgtSelectDiv selectDiv">
+                                        <img id="chkFullTime" src="image/icon/fgt_button_unselect.png"
+                                             ng-click="changedFullTime(true)"/>
+
+                                        <div class="text">
+                                            {{'label_introduce_full_time' | translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting">{{'label_setting_birthday' | translate}}</span>
+                        <div class="fr">
+                            <input type="text" ng-model="birthday"  ng-blur="changeBirthday()"  ng-keyup="verifyBirthdayFormat()" readonly style="width: 120px;" maxlength="10"/>
+                            <span class="icon_setting" onclick="showEditBorder(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <!--<li>-->
+                        <!--<span class="title_setting track_day">{{'label_setting_td' | translate}}</span>-->
+                        <!--<div class="fr">-->
+                            <!--<span class="settingClass">{{showTrackDay}}</span>-->
+                            <!--<select ng-model="trackDay" ng-options="c.id as c.name for c in weekDays" class="settingSelect hideClass"></select>-->
+                            <!--<span class="icon_setting" onclick="supersedeSelect(this)"><img src="image/setting/edit_icon.png"></span>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <li>
+                        <span class="title_setting track_day">{{'label_setting_mt' | translate}}</span>
+                        <div class="fr">
+                            <span class="settingClass">{{showMeetingDay}}</span>
+                            <select ng-model="meetingDayOfWeek" ng-options="c.id as c.name for c in weekDays" class="settingSelect hideClass"> </select>
+                            <span class="icon_setting" onclick="supersedeSelect(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting">{{'label_setting_sw' | translate}}</span>
+                        <!--<div class="fr">{{weight | floatFormat: language}}</div>-->
+                        <div class="fr">
+                            <input type="text" ng-model="weight"  ng-blur="changeWeight()"  readonly style="width: 100px"/>
+                            <span class="icon_setting" onclick="showEditBorder(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting">{{'label_setting_gw' | translate}}</span>
+                        <div class="fr">
+                             <input type="text" ng-model="goalWeight" readonly ng-keyup="clearGoalNoNum()" style="width: 54px;">
+                            <span class="icon_setting" onclick="showEditBorder(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting">{{'label_setting_pf' | translate}}</span>
+                        <div class="fr">
+                        <span class="icon_setting" ng-click="showPowerFood()">
+                            <img style="width:50px;" src="image/icon/fgt_button_unselect_t.png" ng-model="showOnlyPowerFood" ng-show="!showOnlyPowerFood"/>
+                            <img style="width:50px;" src="image/icon/fgt_button_select_t.png" ng-model="showOnlyPowerFood" ng-show="showOnlyPowerFood"/>
+                        </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="wrap_bar"></div>
+            <div class="basic_setting">
+                <ul>
+                    <li>
+                        <span class="title_setting">{{'label_setting_dt' | translate}} <span style="font-style: italic;font-weight: bold;"> {{'label_point_proPontos' | translate}}</span> </span>
+                        <div class="fr">
+                            <img src="image/icon_setting_dpt.png" ng-show="dailyPointFlag"  class="redFlag"/>
+                        <input type="text" ng-model="dailyPoint" readonly  ng-blur="checkDailyPoint()" />
+                        <span class="icon_setting" onclick="showEditBorder(this)">
+                            <img src="image/setting/edit_icon.png">
+                        </span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting"><span style="font-style: italic;font-weight: bold;"> {{'label_point_proPontos' | translate}}</span> {{'label_setting_wa' | translate}}</span>
+                        <div class="fr">
+                            <img src="image/icon_setting_dpt.png" ng-show="weeklyPointFlag"  class="redFlag"/>
+                            <input type="text" ng-model="weeklyPoint" readonly  ng-keyup="checkWeeklyPoint()"/>
+                            <span class="icon_setting" onclick="showEditBorder(this)">
+                                <img src="image/setting/edit_icon.png" />
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="title_setting"><span style="font-style: italic;font-weight: bold;"> {{'label_point_proPontos' | translate}}</span> {{'label_setting_pp' | translate}}</span>
+                        <div class="fr">
+                            <select ng-model="pointPriority" ng-options="c.id as c.name for c in pointPrioritys">
+                            </select>
+                        </div>
+                        <!--<span class="icon_setting"><img src="image/setting/arrow_icon.png"></span>-->
+                    </li>
+                </ul>
+            </div>
+
+            <div class="wrap_bar"></div>
+            <div class="basic_setting">
+                <ul>
+                    <li>
+                        <span class="title_setting">{{'label_setting_rEmail' | translate}}</span>
+                        <div class="fr">
+                         <span class="icon_setting" ng-click="rememberEmailAddress()">
+                            <img style="width:50px;" src="image/icon/fgt_button_unselect_t.png" ng-model="rememberEmail" ng-show="!rememberEmail"/>
+                             <img style="width:50px;"src="image/icon/fgt_button_select_t.png" ng-model="rememberEmail" ng-show="rememberEmail"/>
+                         </span>
+                        </div>
+                    </li>
+
+                    <!--<li>-->
+                    <!--<span class="title_setting">Remember Last Screen</span>-->
+                    <!--<span class="icon_setting" ng-click="rememberScreen()">-->
+                    <!--<img id="chkRememberLsatScreen" src="image/icon/fgt_button_unselect.png" ng-model="rememberLastScreen" />-->
+                    <!--</span>-->
+                    <!--</li>-->
+
+                </ul>
+            </div>
+            <!-- update Amazon-->
+            <div class="wrap_bar" style="display: none;"></div>
+            <div class="basic_setting" style="display: none;">
+                <ul>
+                    <li>
+                        <span class="title_setting">{{'label_setting_sl' | translate}}</span>
+                        <div class="fr">
+                            <span class="settingClass">{{showLanguage}}</span>
+                            <select ng-model="language" ng-options="c.value as c.name for c in languages" class="settingSelect hideClass" ng-change="languageChange()">
+                            </select>
+                            <span class="icon_setting" onclick="supersedeSelect(this)"><img src="image/setting/edit_icon.png"></span>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!--Amazon-->
+        </div>
+    </div>
+</div>

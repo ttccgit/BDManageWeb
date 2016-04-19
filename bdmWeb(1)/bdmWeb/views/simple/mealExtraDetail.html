@@ -1,0 +1,19 @@
+﻿<div ng-controller="mealExtraDetailController">
+    <div class="top_nav align_c">
+        <a ng-click="back()">
+            <img class="top_back" src="image/arrow_left_blue.png"/></a>
+        <span class="top_title font_red">{{'title_simple_meal_details'| translate}}</span>
+    </div>
+    <div class="simplePage">
+        <h2 class="font_red font_w_b padding_b_d5">
+            {{meal.name}}<img id="imgFavorite" src="image/star_icon_gray.png" ng-click="modifyFavorite()"/></h2>
+        <div ng-if="meal.imgPath != null" class="meal_detail_box">
+            <img src="{{meal.imgPath}}"/>
+        </div>
+        <div ng-if="meal.instructions != null" class="meal_detail_box">
+            <p>
+                {{meal.instructions}}
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<style>
+    .app {
+        overflow: hidden;
+    }
+
+    .sidebar-left {
+        display: block !important;
+    }
+    .Agent_android .app{
+        height:100%;
+        position: absolute;
+    }
+</style>
+<div ng-controller="aboutUsController">
+    <header id="header" class="logo logo_position">
+        <div class="logo_title">{{'menu_weight_About' | translate}}</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div id="bodyData" class="text_padding myProgress_body">
+        <div class="section">
+            <span class="about_title">Sucesso na perda de peso!</span>
+
+            <p>
+            <span class="about_detail">Nossa proposta oferece emagrecimento da forma mais simples e saudável possível. O programa de emagrecimento do Vigilantes do Peso é simples, inteligente e mantém você satisfeito.
+
+ </span>
+
+            <p/>
+
+            <p>
+            <span class="about_detail">O programa <span class="logo_font">ProPontos™</span> tem como base os resultados das pesquisas mais recentes e leva em consideração como o alimento é assimilado pelo corpo. O novo plano alimentar, somado a outros fundamentos de nossa proposta, permite que você faça escolhas alimentares mais inteligentes.
+
+</span>
+            </p>
+        </div>
+
+        <div class="section">
+            <span class="about_title">O poder do grupo</span>
+
+            <p>
+                <span class="about_detail">Reuniões – Obtenha instruções de um Orientador que perdeu peso com o Vigilantes do Peso e com o apoio de pessoas como você. Encontre uma reunião perto de você.
+
+</span>
+            </p>
+
+            <p>
+
+        </div>
+
+        <div class="section">
+            <span class="about_title">Vigilantes do Peso EmCasa</span>
+
+            <p>
+                <span class="about_detail">Obtenha as informações e os recursos de que você precisa para seguir o programa Vigilantes do Peso no conforto de seu lar.
+</span>
+            </p>
+
+            <p>
+            <span class="about_detail">
+Enviaremos a você informações e recursos sobre o plano para que possa seguir o programa do Vigilantes do Peso EmCasa se não puder participar das reuniões. Saiba mais.
+</span>
+
+            <p/>
+
+        </div>
+
+        <div class="section">
+            <span class="about_title">E se para ter um grande começo você não precisasse pensar?</span>
+
+            <p>
+            <span class="about_detail">Com a modalidade <span class="logo_font">Express</span> do Vigilantes do Peso, é assim. Você só precisa comer seguindo a lista de alimentos (chamamos de Alimentos Plenos) que pode encontrar em qualquer supermercado. Fornecemos a você várias ideias de refeições deliciosas. Ou você pode criar as suas. É tão fácil que chega a ser inacreditável.
+               </span></p>
+
+        </div>
+
+    </div>
+    <!--<div id="footer" class="introduce-frame-footer">-->
+    <div id="footer" class="introduce-frame-footer">
+        <div class="express-propontos express-propontos-left">
+            <div><img class="express-propontos-image" src="image/small/LogoExpress.png"></div>
+
+            <div ng-click="goToSimpleIntroduce('/aboutUs')" class="btn_center">
+                <img class="learn-more" src="image/small/button_leam-more.png">
+            </div>
+        </div>
+        <div class="express-propontos express-propontos-right border_left">
+            <div><img class="express-propontos-image" src="image/small/LogoProPontos.png"></div>
+
+            <div ng-click="goToTrackIntroduce('/aboutUs')" class="btn_center">
+                <img class="learn-more" src="image/small/button_leam-more.png">
+            </div>
+        </div>
+    </div>
+</div>

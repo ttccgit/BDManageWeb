@@ -1,0 +1,51 @@
+
+<header>
+    <img class="imgSmall" src="image/small/gettingStartedSimpleTitle.png"/>
+    <img class="imgLarge" src="image/large/simple_title.png"/>
+    <img id="backIcon" class="" src="image/back_button.png" style="display: none;" onclick="prevPage()"/>
+
+</header>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="introduceSimpleModeController">
+        <div class="contain">
+            <div class="prev_icon" onclick="prevPage()"><img src="image/arrow_blue_left.png"/></div>
+            <div id="wrapper" class="space_margin">
+                <div class="introduce-circle ">
+                    <ul id="thelist">
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceSimplePageOne.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceSimplePageTwo.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceSimplePageThree.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceSimplePageFour.html'"></ng-include>
+                        </li>
+                        <li>
+                            <ng-include src="'views/gettingStarted/introduceMotivation.html'"></ng-include>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="next_icon"  onclick="nextPage()"><img src="image/arrow_blue_right.png"/></div>
+            <div id="nav" class="simpleNav">
+                <div class="pagefooter">
+                    <ul id="indicator">
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_one_simple">
+         <ng-include src="'views/gettingStarted/introduceFooterSimple.html'"></ng-include>
+        </div>
+    </div>
+</form>

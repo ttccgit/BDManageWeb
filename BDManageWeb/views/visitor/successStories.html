@@ -1,0 +1,252 @@
+﻿<style>
+    .sidebar-left {
+        display: block !important;
+    }
+    .Agent_android .app{
+        height:100%;
+        position: absolute;
+    }
+
+</style>
+<div ng-controller="successStoriesController">
+<header class="logo logo_position">
+    <div class="logo_title">{{'menu_weight_Stories'| translate}}</div>
+    <div class="btn-group pull-left btn_menu">
+        <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+            <img src="image/icon/menu_bottom.png"/>
+        </div>
+    </div>
+    <div class="clear"></div>
+</header>
+<div class="content_box">
+    <div class="scroll_head">
+        <div class="scroll_img">
+            <div id="slider" class="scroll_slider">
+                <div class="pic_group">
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/antonio.png">
+                        </a>
+
+                        <p class="instruction">
+                            Antonio
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/fernando_henrique.png">
+                        </a>
+
+                        <p class="instruction">
+                            Fernando
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/helena_pinheiro.png">
+                        </a>
+
+                        <p class="instruction">
+                            Helena
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/eliana_gonzales.png">
+                        </a>
+
+                        <p class="instruction">
+                            Eliana
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/andressa_alencar.png">
+                        </a>
+
+                        <p class="instruction">
+                            Andressa</p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/natalia_geara.png">
+                        </a>
+
+                        <p class="instruction">
+                            Natalia
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/luciana_zanini.png">
+                        </a>
+
+                        <p class="instruction">
+                            Luciana
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/flavia.png">
+                        </a>
+
+                        <p class="instruction">
+                            Flavia
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/roberta.png">
+                        </a>
+
+                        <p class="instruction">
+                            Roberta
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/douglas_mesquita.png">
+                        </a>
+
+                        <p class="instruction">
+                            Douglas
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <a href="" ng-click="more()">
+                            <img src="image/visitor/Bianca.png">
+                        </a>
+
+                        <p class="instruction">
+                            Bianca
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="control pagination_control">
+                <div class="arrow_l">
+                    <img src="image/arrow_left.png"/>
+                </div>
+                <ul id="pagination">
+                </ul>
+                <div class="arrow_r">
+                    <img src="image/arrow_right.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="static_title_more" ng-click="more()">
+            {{'success_stories_read_more_name'| translate}}
+        </div>
+        <div class="read_more_site">
+            <a href="{{moreUrl}}" target="_blank">{{'success_stories_read_more'| translate}}</a>
+        </div>
+        <div class="information_head hide">
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoAntonio.html'"></ng-include>
+            </div>
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoFernando.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoHelena.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoEliana.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoAndressa.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoNatalia.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoLuciana.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoFlavia.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoRoberta.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoDouglas.html'"></ng-include>
+            </div>
+
+            <div class="personal_info hide">
+                <ng-include src="'views/visitor/personalInfoBianca.html'"></ng-include>
+            </div>
+
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="scroll_body hide">
+        <div id="fixedDiv" class="up" ng-click="back()"> <img src="image/icon/up.png"/></div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryAntonio.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryFernando.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryHelena.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryEliana.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryAndressa.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryNatalia.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryLuciana.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryFlavia.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryRoberta.html'"></ng-include>
+        </div>
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryDouglas.html'"></ng-include>
+        </div>
+
+        <div class="instruction_body hide">
+            <ng-include src="'views/visitor/successStoryBianca.html'"></ng-include>
+        </div>
+
+    </div>
+    <div class="clear">
+    </div>
+</div>
+</div>

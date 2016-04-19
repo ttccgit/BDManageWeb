@@ -1,0 +1,373 @@
+/********To load the font file on the server to the client according to the client the font is not installed***********/
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+body {
+    font-family: Arial;
+    width: 100%;
+    margin: 0;
+    background: #fff;
+}
+
+.divMain {
+    height: 100%;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.contain {
+    width: 100%;
+    background: #fff;
+
+}
+
+.newMember {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.newMember span {
+    color: #01A9E8;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.divCPF {
+    max-width: 40em;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cpfDiv {
+    width: 67%;
+    height: 2.5em;
+    background: #fff;
+    border: 1px solid #8F8F8F;
+    padding: 8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+}
+
+.cpfDiv img {
+    height: 100%;
+    position: relative;
+}
+
+.btnCPF {
+    height: 2.5em;
+    display: inline-block;
+    margin-left: 1em;
+}
+
+.clear {
+    clear: both;
+}
+
+.register, .boxStyle {
+    width: 80%;
+}
+
+.register {
+    margin: 0 auto;
+}
+
+.boxStyle {
+    margin: 1em auto 0.5em;
+}
+
+.registerTitle {
+    padding: 5px 0px 5px 0px;
+    border-radius: 15px 15px 0 0;
+    -webkit-border-radius: 15px 15px 0 0;
+    -moz-border-radius: 15px 15px 0 0;
+    background: #4A4B4D;
+    font-size: 1em;
+    color: #F8F8F8;
+    text-align: center;
+}
+
+.registerTitle span {
+    color: #01A9E8;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.registerInfo {
+    border-radius: 0 0 15px 15px;
+    -webkit-border-radius: 0 0 15px 15px;
+    -moz-border-radius: 0 0 15px 15px;
+    background-color: #E6E6E6;
+    min-height: 220px;
+}
+
+.row {
+    padding: 2px 10px;
+    margin: 0 auto;
+}
+
+.registerDiv, .inputDiv {
+    width: 100%;
+    height: 2.5em;
+    background: #fff;
+    border: 1px solid #8F8F8F;
+    padding: 8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+
+
+}
+
+.registerDiv {
+    max-width: 500px;
+}
+
+.titleLeft {
+    font-size: 1.25em;
+    margin-left: 5%;
+    margin-top: 3%;
+    text-align: left;
+}
+
+.titleLeft span {
+    color: #01A9E8;
+    font-weight: bold;
+}
+
+.imgLoginContinue {
+    height: 2.5em;
+    position: relative;
+    top: 1.1em;
+    left: -0.5em;
+    zoom: 0.85;
+}
+
+.inputDiv {
+
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    position: relative;
+}
+
+.inputDiv .inputContent, .cpfDiv .inputContent {
+    width: 100%;
+    padding-left: 2.5em;
+    position: absolute;
+    top: .4em;
+    right: .2em;
+}
+
+.inputContent input {
+    border: none;
+    /*height: 100%;*/
+    width: 100%;
+    vertical-align: middle;
+    outline: none;
+}
+
+.inputDiv select {
+    width: 100% !important;
+}
+
+.registerDiv img, .inputDiv img {
+    height: 100%;
+    position: relative;
+}
+
+.registerDiv img {
+    top: -.3em;
+}
+
+.inputDiv img {
+    top: 0;
+}
+
+.registerDiv input {
+    border: none;
+    /*height: 100%;*/
+    width: 80%;
+    vertical-align: middle;
+    margin-top: -.5em;
+    outline: none;
+}
+
+.bgReadOnly {
+    background-color: #ADADAD;
+}
+
+.forgot {
+    display: inline-block;
+
+}
+
+.forgot img {
+    zoom: 0.8;
+    float: left;
+}
+
+.forgot a {
+    color: #004572;;
+    border-bottom: 1px solid #004572;
+    line-height: 2em;
+    font-size:1em;
+}
+
+.forgot span {
+    color: #0070C0;
+    font-size: 1em;
+}
+
+.noticeInfo {
+    float: right;
+    height: 100%
+
+}
+
+.noticeInfo img {
+    height: 1.25em;
+    margin-left: 1em;
+}
+
+.noticeInfo span {
+    color: #004572;
+    font-size: 0.85em;
+    min-width: 20em;
+}
+
+/**butoon style*/
+.loginDiv {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.loginDiv a, .loginDiv button {
+    min-width: 30%;
+}
+
+.button {
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    -webkit-border-radius: 5em;
+    -moz-border-radius: 5em;
+    border-radius: 5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    padding: 0;
+}
+
+.button div {
+    padding: .8em 1.8em .8em 1.8em;
+}
+
+.blue {
+    color: #fff;
+    border: solid 1px #0076a3;
+    background: -webkit-linear-gradient(top, #bad3e6, #035b85 7%, #00a2da);
+    background: -moz-linear-gradient(top, #bad3e6, #035b85 7%, #00a2da);
+    background: -ms-linear-gradient(top, #bad3e6, #035b85 7%, #00a2da 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#035b85', endColorstr='#00a2da', GradientType=0); /* IE6-9 */
+}
+
+.blue:hover {
+    color: #fff;
+    background: -webkit-linear-gradient(top, #bad3e6, #00a2da 7%, #035b85);
+    background: -moz-linear-gradient(top, #bad3e6, #00a2da 7%, #035b85);
+    background: -ms-linear-gradient(top, #bad3e6, #00a2da 7%, #035b85 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00a2da', endColorstr='#035b85', GradientType=0); /* IE6-9 */
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+.button[disabled].blue {
+    color: #fff;
+    border: solid 1px #C9C9C9;
+    background: #C9C9C9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#C9C9C9), to(#C9C9C9));
+    background: -moz-linear-gradient(top, #C9C9C9, #C9C9C9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C9C9C9', endColorstr='#C9C9C9');
+}
+
+a:hover {
+    text-decoration: none;
+
+}
+
+.bigRounded {
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+.loginDiv img {
+    height: 0.8em;
+}
+
+.forgotEmail {
+    min-height: 300px;
+}
+
+.fgtSelectDiv {
+    margin: 0 auto;
+}
+
+.fgtSelectDiv img {
+    float: left;
+    height: 1.75em;
+    margin-left: 20%;
+}
+
+.fgtSelectDiv .text {
+    float: left;
+    font-weight: bold;
+    margin-left: 1em;
+    width: 50%;
+}
+
+.fgtSelectDiv a {
+    text-decoration: underline;
+}
+
+.fgtSelectDiv.selectDiv img {
+    margin-left: 0;
+}
+
+.fgtSelectDiv.selectDiv .text {
+    width: auto;
+    font-weight: normal;
+}
+
+
+.register.boxWider .common_info .inputDiv img{
+    position: absolute;
+    height:auto;
+    width: 1.5em;
+    top: 0.3em;
+
+}

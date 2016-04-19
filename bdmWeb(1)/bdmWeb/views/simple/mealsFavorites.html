@@ -1,0 +1,77 @@
+﻿<style>
+    .sidebar-left {
+        display: block !important;
+    }
+
+</style>
+<div ng-controller="mealsFavoritesController">
+    <header class="logo simple_header">
+        <div class="logo_title simple_logo_title">{{'title_simple_my_meals'|translate}}</div>
+        <div class="btn-group pull-left btn_menu btn_menu_simple" ng-controller="simpleMenuController">
+            <div ng-click="showSimpleBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_icon.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div>
+        <div>
+            <div class="btn-group justified nav-tabs my-meals-select">
+                <a class="btn" href="#/myMeals">{{'title_simple_meals_i_created'|translate}}({{meals
+                    ? meals.length : 0}}) </a><a class="btn checked">{{'title_simple_meals_favorites'|translate}}({{favorites
+                ? favorites.length : 0}}) </a>
+            </div>
+            <div class="my_meals_box">
+                <div class="my_meal_list" ng-repeat="time in mealTimeList"
+                     ng-show="(favorites| filter:customMealTimeFilter(time.value)).length > 0">
+                    <div class="my_meal_head font_red">
+                        {{'label_simple_meal_time_'+ time.name |translate}}
+                    </div>
+                    <ul>
+                        <li ng-repeat="item in favorites| filter:customMealTimeFilter(time.value) | orderBy: 'name'">
+                            <div class="meal_item">
+                                <a href="#/{{item.type == mealItemType.MemberMealType ? 'myMealDetail' : (item.type == mealItemType.IndulgencesMealType ? 'mealIndulgencesDetail' : (item.mealTime != mealTime.Snacks ? 'simpleDetail' : 'mealExtraDetail'))}}/{{item.id}}">
+                                    {{item.name}}</a>
+                                <img class="img_favorites" src="image/star_icon_red.png"
+                                     ng-click="removeFavorite(item.id, item.type)"/>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group justified nav-tabs navbar-absolute-bottom mealFooter static">
+            <a class="btn" href="#/simple">
+                <img class="imgNormal" src="image/icon/meal ideas_blue.png"/><img class="imgChecked"
+                                                                                  src="image/icon/meal ideas_red.png"/>
+
+                <div>
+                    {{'footer_simple_meal_ideas'| translate}}
+                </div>
+            </a><a class="btn checked">
+            <img class="imgNormal" src="image/icon/my meals_blue.png"/><img class="imgChecked"
+                                                                            src="image/icon/my meals_red.png"/>
+
+            <div>
+                {{'footer_simple_my_meals'| translate}}
+            </div>
+        </a><a class="btn" href="#/myProgress">
+            <img class="imgNormal" src="image/icon/my progress_blue.png"/><img class="imgChecked"
+                                                                               src="image/icon/my progress_red.png"/>
+
+            <div>
+                {{'footer_simple_my_progress'| translate}}
+            </div>
+        </a><a class="btn" href="#/howItWorks">
+            <img class="imgNormal" src="image/icon/how it works_blue.png"/><img class="imgChecked"
+                                                                                src="image/icon/how it works_red.png"/>
+
+            <div>
+                {{'footer_simple_how_it_works'| translate}}
+            </div>
+        </a>
+        </div>
+        <div class="mealBottom">
+        </div>
+    </div>
+</div>

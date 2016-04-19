@@ -1,0 +1,159 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+    .Agent_android .app{
+        height:100%;
+        position: absolute;
+    }
+</style>
+<div ng-controller="featureRecipesController">
+    <header class="logo logo_position">
+        <div class="logo_title">{{'menu_weight_Featured'| translate}}</div>
+        <div class="btn-group pull-left btn_menu btn_landscape">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="content_box">
+        <div class="scroll_head">
+            <div class="scroll_img">
+                <div id="slider" class="scroll_slider">
+                    <div class="propontos">
+                        <span class="point_pos font_white">8</span>
+                    </div>
+
+                    <div class="pic_group">
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Bobo-de-Camarao.jpg" ng-click="more()"/>
+
+                                <p class="instruction" pro="8">
+                                    Bobó de Camarão
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Carne Assada ao Vinho Tinto.jpg" ng-click="more()">
+
+                                <p class="instruction" pro="5">
+                                    Carne Assada ao Vinho Tinto
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Espaguete ao Pesto de Espinafre Cremoso.jpg" ng-click="more()">
+
+                                <p class="instruction" pro="7">
+                                    Espaguete ao Pesto de Espinafre Cremoso
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/Pudim de Banana.jpg" ng-click="more()">
+
+                                <p class="instruction" pro="6">
+                                    Pudim de Banana
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="image/visitor/receipt5.jpg" ng-click="more()">
+
+                                <p class="instruction" pro="4">
+                                    Sanduíche de Pasta de Cenoura com Frango
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="arrow_l">
+                        <img src="image/arrow_left.png"/>
+                    </div>
+                    <ul id="pagination">
+                    </ul>
+                    <div class="arrow_r">
+                        <img src="image/arrow_right.png"/>
+                    </div>
+                </div>
+            </div>
+            <div class="static_title_more" ng-click="more()">
+                {{'label_visitor_instruction_ingredients'| translate}}
+            </div>
+            <div class="static_title_more static_title_instruction hide" ng-click="ingredients()">
+                {{'label_visitor_featured_instruction'| translate}}
+            </div>
+            <div class="static_title_more static_title_ingredients hide" ng-click="instruction()">
+                {{'label_visitor_featured_ingredients'| translate}}
+            </div>
+            <div class="read_feature_site">
+                <a href="{{moreUrl}}" target="_blank">{{'label_visitor_instruction_read'| translate}}</a>
+            </div>
+            <div class="information_head hide">
+                <div class="personal_info hide">
+                    <span class="person_info_title_name">Bobó de Camarão</span><br/>
+                    <span class="person_info_title">{{'label_visitor_featured_serving'| translate}}:4</span><br>
+                    <span class="person_info_title">{{'label_visitor_featured_prepare_1'| translate}}:30 {{'label_visitor_featured_prepare_2'| translate}}</span><br>
+                    <!--<span class="person_info_title">Cooking Time:10 min</span><br>-->
+                    <span class="person_info_title">{{'label_visitor_featured_level_1'| translate}}</span>
+                </div>
+                <div class="personal_info hide">
+                    <span class="person_info_title_name">Carne Assada ao Vinho Tinto</span> <br/>
+                    <span class="person_info_title">{{'label_visitor_featured_serving'| translate}}:12</span><br>
+                    <span class="person_info_title">{{'label_visitor_featured_prepare_1'| translate}}:2 {{'label_visitor_featured_prepare_21'| translate}}</span><br>
+                    <!--<span class="person_info_title">Cooking Time:0 min</span><br>-->
+                    <span class="person_info_title">{{'label_visitor_featured_level_2'| translate}}</span>
+                </div>
+                <div class="personal_info hide">
+                    <span class="person_info_title_name">Espaguete ao Pesto de Espinafre Cremoso</span> <br/>
+                    <span class="person_info_title">{{'label_visitor_featured_serving'| translate}}:4</span><br>
+                    <span class="person_info_title">{{'label_visitor_featured_prepare_1'| translate}}:20 {{'label_visitor_featured_prepare_2'| translate}}</span><br>
+                    <!--<span class="person_info_title">Cooking Time:10 min</span><br>-->
+                    <span class="person_info_title">{{'label_visitor_featured_level_1'| translate}}</span>
+                </div>
+                <div class="personal_info hide">
+                    <span class="person_info_title_name">Pudim de Banana</span> <br/>
+                    <span class="person_info_title">{{'label_visitor_featured_serving'| translate}}:12</span><br>
+                    <span class="person_info_title">{{'label_visitor_featured_prepare_1'| translate}}:25 {{'label_visitor_featured_prepare_2'| translate}}</span><br>
+                    <!--<span class="person_info_title">Cooking Time:10 min</span><br>-->
+                    <span class="person_info_title">{{'label_visitor_featured_level_1'| translate}}</span>
+                </div>
+                <div class="personal_info hide">
+                    <span class="person_info_title_name">Sanduíche de Pasta de Cenoura com Frango</span> <br/>
+                    <span class="person_info_title">{{'label_visitor_featured_serving'| translate}}:4</span><br>
+                    <span class="person_info_title">{{'label_visitor_featured_prepare_1'| translate}}:20 {{'label_visitor_featured_prepare_2'| translate}}</span><br>
+                    <!--<span class="person_info_title">Cooking Time:40 min</span><br>-->
+                    <span class="person_info_title">{{'label_visitor_featured_level_1'| translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll_body hide">
+            <div class="up" ng-click="back()"><img src="image/icon/up.png"/></div>
+            <div class="instruction_body hide">
+                <ng-include src="'views/visitor/recipe_blue_cheese.html'"></ng-include>
+            </div>
+            <div class="instruction_body hide">
+                <ng-include src="'views/visitor/recipe_chicken_strawberry.html'"></ng-include>
+            </div>
+            <div class="instruction_body hide">
+                <ng-include src="'views/visitor/recipe_lemony.html'"></ng-include>
+            </div>
+            <div class="instruction_body hide">
+                <ng-include src="'views/visitor/recipe_grilled_ham.html'"></ng-include>
+            </div>
+            <div class="instruction_body hide">
+                <ng-include src="'views/visitor/recipe_crispy_yucca.html'"></ng-include>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>

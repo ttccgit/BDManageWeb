@@ -1,0 +1,47 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="weightModifyController">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{'label_weight_enter' | translate}}</span>
+                </div>
+                <div class="btn-group pull-left">
+                    <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/icon_back.png">
+                    </div>
+                </div>
+            </div>
+            <div class="trackerDiv trackerBox">
+                <span ng-model="currentWeekDate">{{'label_weight_week' | translate}} {{currentWeekDate}}: </span>
+
+                <div class="trackerInputBox" style="margin-bottom: 2em;">
+                    <div class="inputDiv">
+                        {{'label_weight_weight' | translate}}:
+                        <div class="inputContent"><input type="text" ng-model="weight"
+                                                         placeholder="{{'placeholder_weight_enter'| translate}}" ng-keyup="clearGoalNoNum()"/>
+                        </div>
+                    </div>
+                    <div class="inputDiv">
+                        {{'label_weight_day' | translate}}:
+                        <div class="inputContent"><input max="{{maxDate}}" min="{{minDate}}" type="date"
+                                                         ng-model="dateOfWeekDate" ng-show="!isShowD"/></div>
+                        <div class="inputContent"><input type="text" id="dateInput"  ng-model="dateOfWeekDate1" ng-show="isShowD"/></div>
+                    </div>
+                </div>
+                <span> {{'label_weight_Notes' | translate}}: </span>
+
+                <div class="textareaDiv">
+                    <textarea class="textarea" ng-model="notes"></textarea>
+                </div>
+
+                <button class="btn_lightgreen" ng-click="saveWeight()">{{'button_save_weight' | translate}}</button>
+            </div>
+            <div class="trackerDiv">
+                <button class="btn_lightred" ng-click="deleteWeight()">{{'button_delete_weight' | translate}}</button>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</form>

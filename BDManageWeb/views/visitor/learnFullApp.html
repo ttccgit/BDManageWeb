@@ -1,0 +1,59 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+
+</style>
+<div ng-if="languageNGIf == 'eng_BR'" ng-controller="aboutUsController">
+    <header class="logo logo_position">
+        <div class="logo_title">Learn about full app</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="text_padding">
+        <h1 style="margin: 0px 0px 20px 0px; font-size: 17px;"><b>Vigilantes do Peso Mobile</b></h1>
+
+        <div class="section">
+            <span class="about_detail">Sign up for Vigilantes do Peso Online, the Internet companion to meetings, and you'll be able to use this app to:</span>
+
+            <p/>
+            <span class="about_detail">Track <span class="pro_font">ProPontos®</span> values for food and activity;
+                Calculate <span class="pro_font">ProPontos</span> values;
+                Search our database of food, meals, and recipes;
+                Add the foods you eat most often to your Favorites;
+                Use Cheat Sheets for pizza, pasta, salads and more!
+                Use barcode scanner to get your <span class="pro_font">ProPontos</span> values in a very quick way.</span>
+
+            <p/>
+            <span class="about_detail">Or you can also try Vigilantes do Peso Express,
+                our new 2-week, no-brainer starter plan for
+                people who are new to Vigilantes do Peso
+                (or current members who want to re-spark
+                their motivation!). </span>
+        </div>
+        <div class="introduce-frame-footer">
+            <div class="express-propontos express-propontos-left">
+                <div><img class="express-propontos-image" src="image/small/LogoExpress.png"></div>
+
+                <div ng-click="goToSimpleIntroduce('/learnFullApp')" class="btn_center">
+                    <img class="learn-more" src="image/small/button_leam-more.png">
+                </div>
+            </div>
+            <div class="express-propontos express-propontos-right border_left">
+                <div><img class="express-propontos-image" src="image/small/LogoProPontos.png"></div>
+
+                <div ng-click="goToTrackIntroduce('/learnFullApp')" class="btn_center">
+                    <img class="learn-more" src="image/small/button_leam-more.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="languageNGIf == 'pt_BR'" >
+    <ng-include src="'views/visitor/pt_BR/hwLearnFullApp.html'"></ng-include>
+</div>

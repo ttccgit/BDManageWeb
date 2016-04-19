@@ -1,0 +1,201 @@
+﻿
+<header class="logo">
+    <img class="imgSmall" src="image/small/title.png"/>
+    <img class="imgLarge" src="image/large/logoLarge.png"/>
+</header>
+<form name="myForm" novalidate>
+    <div class="main smallContract" ng-controller="contactInfoController">
+        <div class="contain">
+            <div class="register boxWider">
+                <div class="title">
+                    {{"title_person_just" | translate}}
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_state.png">
+
+                    <div class="inputContent">
+                        <select ng-model="state" id="state" ng-options="s.id as s.name for s in stateModel"
+                                ng-change="stateSelected()" ng-show="!isShowState">
+                        </select>
+                        <div style="width: 100% !important;" ng-click="showSateSelect()" ng-show="isShowState">
+                            <span style="color: #A9A9A9" >estado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_city-fields.png">
+
+                    <div class="inputContent">
+                        <select ng-model="city" id="city" ng-options="c.id as c.name for c in cityModel"
+                                ng-change="citySelected()" ng-show = "!isShowCity">
+                        </select>
+                        <div style="width: 100% !important;"  ng-click="showCitySelect()" ng-show = "isShowCity">
+                            <span style="color: #A9A9A9" >cidade</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_neighbourhood.png">
+
+                    <div class="inputContent">
+                        <select ng-model="neighbourhood" id="neighbourhood"
+                                ng-options="nbh.id as nbh.name for nbh in nbhModel"
+                                ng-change="nbhSelected()" ng-show = "!isShowNbh">
+                        </select>
+                        <div style="width: 100% !important;" ng-click="showNbhSelect()" ng-show = "isShowNbh">
+                            <span style="color: #A9A9A9" >bairro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_address.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="address" placeholder="{{'placeholder_person_address' | translate}}" ng-model="address"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_number.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="buildingNumber" placeholder="{{'placeholder_person_number'|translate}}" ng-model="buildingNumber"
+                               ng-keydown="verifyNumberFieldFormat(buildingNumber, $event)" maxlength="30"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_complemento.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="apartmentNumber" placeholder="{{'placeholder_person_complementor' | translate}}" ng-model="apartmentNumber"
+                               ng-keydown="verifyApartmentFormat(apartmentNumber, $event)" maxlength="30"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_homephone.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="telephone" placeholder="{{'placeholder_person_phone' | translate}}" ng-model="telephone"
+                               ng-keyup="verifyPhoneFormat(telephone,$event)" maxlength="12"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="inputDiv">
+                    <img src="image/icon/icon_mobile.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="cellphone" placeholder="{{'placeholder_person_mobile' | translate}}" ng-model="cellphone"
+                               ng-keyup="verifyPhoneFormat(cellphone,$event)" maxlength="12"
+                               onkeypress="return handleEnter(this, event)"/>
+                    </div>
+                </div>
+                <div class="loginDiv buttonBar">
+                    <a class="button blue bigRounded">
+                        <div ng-click="next()">
+                            Continue
+                            <img src="image/icon/button_arrows.png"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main largeContract" ng-controller="contactInfoController">
+        <div class="contain">
+            <div class="registerContract boxWider">
+                <div class="title">
+                    {{"title_person_just" | translate}}
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_state.png">
+                    <div>
+                        <div class="inputContent">
+
+                            <select ng-model="state" id="state" ng-options="s.id as s.name for s in stateModel"
+                                    ng-change="stateSelected()" ng-show="!isShowState">
+                            </select>
+                            <div style="width: 100% !important;" ng-click="showSateSelect()" ng-show="isShowState">
+                                <span style="color: #A9A9A9" >estado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_city-fields.png">
+
+                    <div class="inputContent">
+                        <select ng-model="city" id="city" ng-options="c.id as c.name for c in cityModel"
+                                ng-change="citySelected()" ng-show = "!isShowCity">
+                        </select>
+                        <div style="width: 100% !important;"  ng-click="showCitySelect()" ng-show = "isShowCity">
+                            <span style="color: #A9A9A9">cidade</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_neighbourhood.png">
+
+                    <div class="inputContent">
+                        <select ng-model="neighbourhood" id="neighbourhood"
+                                ng-options="nbh.id as nbh.name for nbh in nbhModel"
+                                ng-change="nbhSelected()" ng-show = "!isShowNbh">
+                        </select>
+                        <div style="width: 100% !important;" ng-click="showNbhSelect()" ng-show = "isShowNbh">
+                            <span style="color: #A9A9A9">bairro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_address.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="address" placeholder="{{'placeholder_person_address' | translate}}" ng-model="address"/>
+                    </div>
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_number.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="buildingNumber" placeholder="{{'placeholder_person_number'|translate}}" ng-model="buildingNumber"
+                               ng-keydown="verifyNumberFieldFormat(buildingNumber, $event)" maxlength="30"/>
+                    </div>
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_complemento.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="apartmentNumber" placeholder="{{'placeholder_person_complementor' | translate}}" ng-model="apartmentNumber"
+                               ng-keydown="verifyApartmentFormat(apartmentNumber, $event)" maxlength="30"/>
+                    </div>
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_homephone.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="telephone" placeholder="{{'placeholder_person_phone' | translate}}" ng-model="telephone"
+                               ng-keyup="verifyPhoneFormat(telephone,$event)" maxlength="12"/>
+                    </div>
+                </div>
+                <div class="inputDiv inputWidth">
+                    <img src="image/icon/icon_mobile.png">
+
+                    <div class="inputContent">
+                        <input type="text" id="cellphone" placeholder="{{'placeholder_person_mobile' | translate}}" ng-model="cellphone"
+                               ng-keyup="verifyPhoneFormat(cellphone,$event)" maxlength="12"/>
+                    </div>
+                </div>
+                <div class="loginDiv buttonBar">
+                    <a class="button blue btnLarge bigRounded">
+                        <div ng-click="next()">
+                            {{"button_continue"|translate}}
+                            <img src="image/icon/button_arrows.png"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

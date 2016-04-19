@@ -1,0 +1,25 @@
+﻿<h1 class="orange_title">
+    Name your meal</h1>
+<div class="row">
+    <div class="inputDiv">
+        <div class="inputContent">
+            <input id="txtMealName" class="input_dialog" type="text" placeholder="Meal name" />
+        </div>
+    </div>
+</div>
+<div class="button_container btn_dialog">
+    <button class="btn_orange mr10p" onclick="$('.mask,.dialog').remove();">
+        Cancel</button>
+    <button class="btn_orange" onclick="saveMeal()">
+        Save meal</button>
+</div>
+<script type="text/javascript">
+    function saveMeal() {
+        if ($("#txtMealName").val().trim() == "") {
+            jAlert("Please input meal name.");
+            return;
+        }
+
+        saveMyMeal();
+    }
+</script>

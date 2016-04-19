@@ -1,0 +1,14 @@
+<div ng-controller="introduceSimpleModeController">
+    <div class="simple-image">{{'label_introduce_title' | translate}}</div>
+    <div class="simple-text ">
+        <div class="motivation"><p>{{'label_introduce_because' | translate}} </p></div>
+        <!--<input type="text" ng-model="reason"  maxlength="61"/>-->
+        <textarea ng-model="reason" maxlength="61"placeholder="{{'placeholder_introduce_build' | translate}}">
+        </textarea>
+        <span>
+            <p><i>{{'label_introduce_example' | translate}}</i></p>
+            <p><i>{{'label_introduce_pair' | translate}}</i></p>
+        </span>
+        <button class="btn_red" ng-click="saveMotivation()">{{'button_introduce_started' | translate}}</button>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="simpleProgressSelectController">
+        <div class="myProgress_title">
+            <a ng-click="back()">
+                <img style="height: 50%; float: left" src="image/arrow_left_blue.png"/></a>
+            <span>{{'label_simple_select' | translate}} {{mealsName}}</span>
+        </div>
+        <div class="myProgress_saveDiv " id="myProgress_saveDiv">
+            <span class="font_dot9">{{'label_simple_nice' | translate}}</span>
+            <button class="btn_white" ng-click="saveMeals()">{{'button_save' | translate}}</button>
+        </div>
+        <div class="meal_ul_list">
+            <div class="meal_title">{{mealsName}}</div>
+            <div class="meal_info" ng-repeat="meal in mealList" on-finish-meals-render>
+                <div class="meal_name" ng-model="meal.mealId" style="max-width: 240px">{{meal.name}}</div>
+                <div class="meal_img {{meal.selectClass}}" ng-click="changeMeal(meal)"></div>
+            </div>
+        </div>
+    </div>
+</form>

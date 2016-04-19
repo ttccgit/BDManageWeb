@@ -1,0 +1,116 @@
+<style>
+    .app {
+        background: #eef3f7;
+        overflow: hidden;
+    }
+
+</style>
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="activityTrackerController">
+        <div id="head">
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{'label_pointTrack_activities' | translate}}</span>
+                </div>
+                <div class="btn-group pull-left">
+                    <div ng-click="backToIndex()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+                <div class="btn-group pull-right">
+                    <div onclick="showQuickMenu()" class="btn btn-navbar sidebar-toggle add">
+                        <img src="image/add_button.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bodyData" class="myProgress_body">
+            <div class="search_box">
+                <div class="inputDiv searchDiv">
+                    <div class="inputContent">
+                        <input type="text" placeholder="{{'placeholder_activity_search' | translate}}" ng-model="searchName" ng-keydown="extendSearch($event.keyCode)"/>
+                    </div>
+                    <div ng-click="searchAllActivity(searchName)" class="btn_search" id="btnSearch">
+                        <img class="btn_search_1"  src="image/icon/button_search2.png"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="nav nav-tabs bg_blue navFont collect3">
+                    <li class="middleLi"><a href="#recently" toggle="on" parent-active-class="active"
+                                            ng-click="recentlySearch()">{{'tab_pointTrack_activity_ra' | translate}}</a></li>
+                    <li class="middleLi"><a href="#fav" toggle="on" parent-active-class="active" ng-click="favSearch()">{{'tab_pointTrack_favorites'
+                        | translate}}</a></li>
+                   <li class="middleLi"><a href="#all" toggle="on" parent-active-class="active" ng-click="allSearch()">{{'tab_pointTrack_allA'
+                        | translate}}</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane" toggleable active-class="active" default="active" id="recently"
+                     exclusion-group="Activities">
+                    <div class="trackerBox pointBox pointList fix_margin">
+                        <div style="text-align: center;"><img style="margin:1em;" src="image/loader.gif" ng-show="loadImg"/></div>
+                        <div ng-show="itemFlag">{{'message_pointTrack_noRItem' | translate}}</div>
+                        <!--<div ng-show="(recentActivities | filter:ignoreAccents).length == 0 && !loadImg && !itemFlag">{{'message_pointTrack_noRItem' | translate}}</div>-->
+                        <div ng-repeat="recActivity in recentActivities">
+                            <div ng-show="recActivity.titleFlag" class="tableTitle">{{recActivity.showTitle}}</div>
+                            <div ng-show="!recActivity.titleFlag" class="tableContent"
+                                 ng-click="getDetailActivity({{recActivity}})">
+                                <div ng-if="recActivity.archived == 1 || recActivity.obsolete == 1" class="tableInfo" style="color: #A9A9A9">{{recActivity.name}}</div>
+                                <div ng-if="recActivity.archived == 0 && recActivity.obsolete == 0" class="tableInfo">{{recActivity.name}}</div>
+                                <!--<div class="tableInfo">{{recActivity.name}}</div>-->
+                                <div class="tableNo">
+                                    <img src="image/favorites_ico_homepage.png" ng-show="recActivity.isFavorite"/>
+                                    {{recActivity.point}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" toggleable active-class="active" id="fav" exclusion-group="Activities">
+                    <div class="trackerBox pointBox pointList fix_margin">
+                        <div style="text-align: center;"><img style="margin:1em;" src="image/loader.gif" ng-show="loadImg"/></div>
+                        <div ng-show="favoriteFlag">{{'message_pointTrack_noFItem' | translate}}</div>
+                        <!--<div ng-show="(favActivities | filter:ignoreAccents).length == 0 && !loadImg && !favoriteFlag">{{'message_pointTrack_noFItem' | translate}}</div>-->
+                        <div ng-repeat="favActivity in favActivities">
+                            <div ng-show="favActivity.titleFlag" class="tableTitle">{{favActivity.showTitle}}</div>
+                            <div ng-show="!favActivity.titleFlag" class="tableContent"
+                                 ng-click="getDetailActivity({{favActivity}})">
+                                <div ng-if="favActivity.obsolete == 1" class="tableInfo" style="color: #A9A9A9">{{favActivity.name}}</div>
+                                <div ng-if="favActivity.obsolete == 0" class="tableInfo" >{{favActivity.name}}</div>
+                                <!--<div class="tableInfo" >{{favActivity.name}}</div>-->
+                                <div class="tableNo">
+                                    <img src="image/favorites_ico_homepage.png" ng-show="favActivity.isFavorite"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" toggleable active-class="active" id="all" exclusion-group="Activities">
+                    <div class="trackerBox pointBox pointList fix_margin">
+                        <div style="text-align: center;"><img style="margin:1em;" src="image/loader.gif" ng-show="loadImg"/></div>
+                        <div ng-show="allFlag">{{'message_pointTrack_noItem' | translate}}</div>
+                        <div ng-show="(activities | filter:ignoreAccents).length == 0 && !loadImg && !allFlag">{{'message_pointTrack_noItem' | translate}}</div>
+                        <div ng-repeat="activity in activities | filter:ignoreAccents">
+                            <div ng-show="activity.titleFlag" class="tableTitle">{{activity.showTitle}}</div>
+                            <div ng-show="!activity.titleFlag" class="tableContent"
+                                 ng-click="getDetailActivity({{activity}})">
+                                <div class="tableInfo">{{activity.name}}</div>
+                                <div class="tableNo">
+                                    <img src="image/favorites_ico_homepage.png" ng-show="activity.isFavorite"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="quickMenu" id="quickMenu">
+            <ul>
+                <li class="border_bottom quickAdd" ng-click="toQuickAdd()">{{'label_pointTrack_qa' | translate}}</li>
+                <li class="border_bottom calc" ng-click="toCal()">{{'label_pointTrack_calculator' | translate}}</li>
+            </ul>
+        </div>
+    </div>
+</form>

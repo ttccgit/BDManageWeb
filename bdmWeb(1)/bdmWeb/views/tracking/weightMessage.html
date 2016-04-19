@@ -1,0 +1,39 @@
+<form name="myForm" novalidate>
+    <div class="main" ng-controller="weightMessageController">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{'title_weight_tracker' | translate}}</span>
+                </div>
+                <!--<div class="btn-group pull-left">-->
+                    <!--<div ng-click="back()" class="btn btn-navbar sidebar-toggle">-->
+                        <!--<img src="image/icon_back.png">-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="trackerDiv trackerBox">
+                <p class="bold">{{congratulationDetail}}</p>
+
+                <p>{{initialWeightDetail}}</p>
+
+                <p>{{weightDetail}} <img class="starImg" ng-show="imgShowFlag" src="{{starPath}}"/></p>
+
+                <p>{{weightLostDetail}}</p>
+                <a class="button green btnLarge bigRounded" ng-show="goalFlag">
+                    <div ng-click="goMaintain()"> {{'button_tracker_maintain'| translate }}</div>
+                </a>
+                <a class="button lightBlue btnLarge bigRounded" ng-show="goalFlag">
+                    <div ng-click="goWeightGoal()"> {{'button_tracker_reset_goal'| translate }}</div>
+                </a>
+                <a class="button green btnLarge bigRounded" ng-show="!goalFlag">
+                    <div ng-click="goWeightOK()"> {{'button_ok'| translate }}</div>
+                </a>
+            </div>
+            <div class="trackerDiv trackerBox">
+                <p id="trackerDetail">
+                    {{trackerDetail}}
+                </p>
+            </div>
+        </div>
+    </div>
+</form>

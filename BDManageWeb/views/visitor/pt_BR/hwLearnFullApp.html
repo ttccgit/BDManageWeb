@@ -1,0 +1,57 @@
+<style>
+    .sidebar-left {
+        display: block !important;
+    }
+    .app{
+        height:100%!important;
+        position: relative!important;
+    }
+
+
+</style>
+<div ng-controller="learnFullAppController">
+    <header class="logo logo_position">
+        <div class="logo_title">Saiba mais sobre o aplicativo completo</div>
+        <div class="btn-group pull-left btn_menu">
+            <div ng-click="showLearnBar()" class="btn btn-navbar sidebar-toggle">
+                <img src="image/icon/menu_bottom.png"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </header>
+    <div class="text_padding hwLearnBody" style="overflow-y: auto;">
+        <h1 style="margin: 0px 0px 20px 0px; font-size: 17px;"><b>Você poderá usar o aplicativo para:</b></h1>
+
+        <div class="section">
+            <span class="about_detail">
+                Monitorar as unidades <span class="logo_font">ProPontos™</span> dos alimentos e suas atividades; calcular as unidades <span
+                    class="logo_font">ProPontos™</span> ; pesquisar em nosso banco de dados de alimentos, refeições e receitas; adicionar os alimentos que você come com mais frequência aos seus Favoritos; usar o Clique e Pontue para pizza, massa, saladas e mais; usar o leitor de código de barras para obter as unidades <span
+                    class="logo_font">ProPontos™</span> de uma forma muito rápida.
+
+
+            <p/>
+            <span class="about_detail">Ou então você pode tentar a modalidade <span class="logo_font">Express</span> do Vigilantes do Peso, um novo plano inicial de duas semanas fácil e simples para Associados novos no Vigilantes do Peso ou para aqueles que já seguem o programa e desejam renovar sua motivação.
+ </span>
+
+            <p/>
+
+        </div>
+
+    </div>
+    <div class="introduce-frame-footer">
+        <div class="express-propontos express-propontos-left">
+            <div><img class="express-propontos-image" src="image/small/LogoExpress.png"></div>
+
+            <div ng-click="goToSimpleIntroduce('/learnFullApp')" class="btn_center">
+                <img class="learn-more" src="image/small/button_leam-more.png">
+            </div>
+        </div>
+        <div class="express-propontos express-propontos-right border_left">
+            <div><img class="express-propontos-image" src="image/small/LogoProPontos.png"></div>
+
+            <div ng-click="goToTrackIntroduce('/learnFullApp')" class="btn_center">
+                <img class="learn-more" src="image/small/button_leam-more.png">
+            </div>
+        </div>
+    </div>
+</div>

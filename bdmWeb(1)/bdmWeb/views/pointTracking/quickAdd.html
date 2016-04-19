@@ -1,0 +1,92 @@
+<style>
+    .app {
+        background: #eef3f7;
+    }
+</style>
+<form name="myForm" novalidate>
+    <div class="main">
+        <div>
+            <div class="navbar navbar-app navbar-absolute-top bg-blue border_bottom_devide">
+                <div class="navbar-brand navbar-brand-center">
+                    <span>{{'label_pointTrack_qa' | translate}}</span>
+                </div>
+                <div class="btn-group pull-left" ng-controller="memberFoodController">
+                    <div ng-click="back()" class="btn btn-navbar sidebar-toggle">
+                        <img src="image/back_button.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border_top_devide">
+            <ul class="nav nav-tabs bg_blue navFont collect2">
+                <li class="halfLi" id="foodLi"><a href="#food" toggle="on" parent-active-class="active">{{'tab_pointTrack_ad' | translate}}</a></li>
+                <li class="halfLi" id="activityLi"><a href="#activity" toggle="on" parent-active-class="active">{{'tab_pointTrack_aa' | translate}}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" toggleable active-class="active"  id="food"
+                     exclusion-group="quickAdd">
+                    <div class="trackerBoxOutContent" ng-controller="memberFoodController">
+                        <div class="pointBox ">
+                            <div class="pointDiv">
+                                <div class="trackerInputBox">
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_name' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="name" placeholder=""
+                                                                         ng-keyup="checkName()" maxlength="50"/></div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_points' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="point"
+                                                                         placeholder="" maxlength="2"
+                                                                         ng-change="pointChange()"/></div>
+                                    </div>
+                                </div>
+                                <div class="trackerInputBox">
+                                    <div class="inputDiv">
+                                        <select ng-model="meal" id=""
+                                                ng-options="m.id as m.name for m in mealModel"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="propontos_content">
+                                <div class="propontos_img"><span class="font_white">{{pointCal}}</span></div>
+
+                            </div>
+                        </div>
+                        <button class="btn_gray" ng-show="!buttonGray">{{'button_pointTrack_addToTrack' | translate}}</button>
+                        <button class="btn_green" ng-show="buttonGray" ng-click="addMemberFood(true)">{{'button_pointTrack_addToTrack' | translate}}</button>
+                    </div>
+                </div>
+                <div class="tab-pane" toggleable active-class="active" id="activity" exclusion-group="quickAdd">
+                    <div class="trackerBoxOutContent" ng-controller="memberActivityController">
+                        <div class="pointBox">
+                            <div class="pointDiv">
+                                <div class="trackerInputBox">
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_name' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="name" placeholder=""
+                                                                         ng-keyup="checkName()" maxlength="50"/>
+                                            <input type="hidden" ng-model="duration" value="-1"/>
+                                        </div>
+                                    </div>
+                                    <div class="inputDiv">
+                                        {{'label_pointTrack_points' | translate}}:
+                                        <div class="inputContent"><input type="text" ng-model="point"
+                                                                         placeholder="" maxlength="2"
+                                                                         ng-change="calculatePoints()"/></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="propontos_content">
+                                <div class="propontos_img"><span class="font_white" ng-model="point">{{pointCal}}</span></div>
+                            </div>
+                        </div>
+                        <button class="btn_gray" ng-show="!buttonGray">{{'button_pointTrack_addToTrack' | translate}}</button>
+                        <button class="btn_green" ng-show="buttonGray" ng-click="addMemberActivity()">{{'button_pointTrack_addToTrack' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
